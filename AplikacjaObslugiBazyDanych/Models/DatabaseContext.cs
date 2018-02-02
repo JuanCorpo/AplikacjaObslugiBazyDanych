@@ -9,7 +9,7 @@ namespace AplikacjaObslugiBazyDanych.Models
 
     public class DatabaseContext : DbContext
     {
-        //public DbSet<Employees> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
