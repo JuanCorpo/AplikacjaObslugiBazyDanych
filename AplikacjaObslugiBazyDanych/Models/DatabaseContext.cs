@@ -10,6 +10,7 @@ namespace AplikacjaObslugiBazyDanych.Models
     public class DatabaseContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
