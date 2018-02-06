@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AplikacjaObslugiBazyDanych.Resources;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AplikacjaObslugiBazyDanych.Models
 {
@@ -35,6 +36,8 @@ namespace AplikacjaObslugiBazyDanych.Models
 
         [Display(ResourceType = typeof(EmployeesRes), Name = "Role")]
         public int RoleId { get; set; }
+        [ForeignKey("RoleId")]
+        public virtual int? Role { get; set; }
 
         /*
         public virtual int? ProviderId { get; set; }
@@ -44,6 +47,6 @@ namespace AplikacjaObslugiBazyDanych.Models
         */
 
         // virtual ICollecition<> Role
-       
+
     }
 }
