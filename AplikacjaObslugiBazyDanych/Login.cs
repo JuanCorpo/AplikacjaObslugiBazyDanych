@@ -38,6 +38,7 @@ namespace AplikacjaObslugiBazyDanych
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }
+            
         }
     }
 }

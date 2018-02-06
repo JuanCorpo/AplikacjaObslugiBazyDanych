@@ -7,15 +7,21 @@ namespace AplikacjaObslugiBazyDanych.Models
     {
         [Key]
         public int ProductId { get; set; }
+
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
-        public virtual int? Category { get; set; }
+        public virtual Category Category { get; set; }
+
         public string Name { get; set; }
+
         public decimal Price { get; set; }
+
         public int NumberOfBought { get; set; }
-        public int StockStatus { get; set; }      
-        public int EmployeId { get; set; }
-        [ForeignKey("EmployeId")]
-        public virtual int? Employe { get; set; }
+
+        public int StockStatus { get; set; } 
+        
+        public int? EmployeeId { get; set; }
+        [ForeignKey("EmployeeId")]
+        public virtual Employee Employee { get; set; }
     }
 }

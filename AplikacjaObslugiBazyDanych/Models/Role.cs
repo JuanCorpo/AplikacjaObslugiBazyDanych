@@ -2,10 +2,11 @@
 
 namespace AplikacjaObslugiBazyDanych.Models
 {
-    class Role
+    public class Role
     {
         [Key]
         public int RoleId { get; set; }
+
         public string RoleName { get; set; }
     }
 }

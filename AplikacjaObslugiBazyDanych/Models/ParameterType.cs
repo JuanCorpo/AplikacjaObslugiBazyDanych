@@ -2,11 +2,13 @@
 
 namespace AplikacjaObslugiBazyDanych.Models
 {
-    class ParameterType
+    public class ParameterType
     {
         [Key]
         public int ParameterId { get; set; }
+
         public string ParameterName { get; set; }
+
         public string ValueType { get; set; }
     }
 }

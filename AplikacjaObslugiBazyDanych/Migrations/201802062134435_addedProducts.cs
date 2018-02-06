@@ -11,15 +11,15 @@ namespace AplikacjaObslugiBazyDanych.Migrations
                 "dbo.Products",
                 c => new
                     {
-                        EmployeeId = c.Int(nullable: false, identity: true),
+                        ProductId = c.Int(nullable: false, identity: true),
                         CategoryId = c.Int(nullable: false),
                         Name = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         NumberOfBought = c.Int(nullable: false),
                         StockStatus = c.Int(nullable: false),
-                        EmployeId = c.Int(nullable: false),
+                        EmployeeId = c.Int(),
                     })
-                .PrimaryKey(t => t.EmployeeId);
+                .PrimaryKey(t => t.ProductId);
             
         }
         

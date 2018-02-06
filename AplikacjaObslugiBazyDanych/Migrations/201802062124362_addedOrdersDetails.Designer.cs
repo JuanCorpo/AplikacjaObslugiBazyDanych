@@ -7,13 +7,13 @@ namespace AplikacjaObslugiBazyDanych.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addedProducts : IMigrationMetadata
+    public sealed partial class addedOrdersDetails : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedProducts));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedOrdersDetails));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802052117458_addedProducts"; }
+            get { return "201802062124362_addedOrdersDetails"; }
         }
         
         string IMigrationMetadata.Source
