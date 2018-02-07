@@ -48,7 +48,7 @@ namespace AplikacjaObslugiBazyDanych.Migrations
                 var adminRole = new Role()
                 {
                     RoleId = 0,
-                    RoleName = "Administratorzy"
+                    RoleName = "Administrator"
                 };
 
                 context.Roles.AddOrUpdate(adminRole);

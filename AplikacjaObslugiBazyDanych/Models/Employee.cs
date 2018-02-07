@@ -33,12 +33,9 @@ namespace AplikacjaObslugiBazyDanych.Models
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
 
-        /*
-         [Display(ResourceType = typeof (Global), Name = "Surname")] // do zasobów
-         [Required(ErrorMessageResourceType = typeof (Global), ErrorMessageResourceName = "RequiredField")]
-         [MinLength(2, ErrorMessageResourceType = typeof (EmployeesRes), ErrorMessageResourceName = "Enter2Letters")]
-         [RegularExpression(@"^((\d{10})|(\d{3}\-\d{3}\-\d{2}\-\d{2})|(\d{3}\-\d{2}\-\d{2}\-\d{3}))$", ErrorMessage = "Niepoprawny NIP")]
-        */
-
+        public string GetFullName()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

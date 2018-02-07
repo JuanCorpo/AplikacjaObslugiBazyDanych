@@ -9,7 +9,7 @@ namespace AplikacjaObslugiBazyDanych
 {
     public partial class Login : Form
     {
-        private readonly DatabaseContext _context = new DatabaseContext();
+        private readonly DatabaseContext context = new DatabaseContext();
 
         public Login()
         {
@@ -21,7 +21,7 @@ namespace AplikacjaObslugiBazyDanych
             var login = TextBox_Login.Text;
             var password = UserHelper.HashPassword(TextBox_Password.Text);
             
-            var employee = _context.Employees.FirstOrDefault(a => a.UserName == login && a.Password == password);
+            var employee = context.Employees.FirstOrDefault(a => a.UserName == login && a.Password == password);
 
             if (employee == null)
             {
