@@ -26,7 +26,7 @@ namespace AplikacjaObslugiBazyDanych.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            if (context.Claims.Count() < 10)
+            if (context.Claims.Count() < 15)
             {
                 context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.AddProducts, ClaimName = "Dodawanie produktów" });
                 context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditProducts, ClaimName = "Edycja produktów" });
@@ -42,6 +42,13 @@ namespace AplikacjaObslugiBazyDanych.Migrations
                 context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.AddEmployee, ClaimName = "Dodawanie pracowników" });
                 context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditEmployee, ClaimName = "Edycja pracowników" });
                 context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.RemoveEmployee, ClaimName = "Usuwanie pracowników" });
+
+                context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.RemoveOrders, ClaimName = "Usuwanie zamówieñ" });
+
+                context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditRoles, ClaimName = "Edycja roli" });
+                context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditCategories, ClaimName = "Edycja kategorii" });
+                context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditStatuses, ClaimName = "Edycja statusów" });
+                context.Claims.AddOrUpdate(new Claim() { ClaimId = (int)Claims.EditParameterTypes, ClaimName = "Edycja typów parametrów" });
             }
             if (!context.Roles.Any())
             {
@@ -53,7 +60,11 @@ namespace AplikacjaObslugiBazyDanych.Migrations
 
                 context.Roles.AddOrUpdate(adminRole);
 
-                AddClaimsToRole(context, 0, Claims.AddProducts, Claims.EditProducts, Claims.RemoveProducts, Claims.AddCustomers, Claims.EditCustomers, Claims.RemoveCustomers, Claims.PlaceOrders, Claims.EditOrders, Claims.AddEmployee, Claims.EditEmployee, Claims.RemoveEmployee);
+                AddClaimsToRole(context, 0, 
+                    Claims.AddProducts, Claims.EditProducts, Claims.RemoveProducts, Claims.AddCustomers, 
+                    Claims.EditCustomers, Claims.RemoveCustomers, Claims.PlaceOrders, Claims.EditOrders, 
+                    Claims.AddEmployee, Claims.EditEmployee, Claims.RemoveEmployee, Claims.RemoveOrders,
+                    Claims.EditRoles, Claims.EditCategories, Claims.EditStatuses, Claims.EditParameterTypes);
             }
 
             if (!context.Employees.Any())
@@ -77,7 +88,7 @@ namespace AplikacjaObslugiBazyDanych.Migrations
 
         public static void AddClaimsToRole(DatabaseContext context, int groupId, params Claims[] claims)
         {
-            foreach (Claims c in claims)
+            foreach (var c in claims)
             {
                 context.RolesClaims.AddOrUpdate(new RoleClaim() { RoleId = groupId, ClaimId = (int)c });
             }

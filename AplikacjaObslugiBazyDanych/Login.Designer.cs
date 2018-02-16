@@ -36,8 +36,8 @@ namespace AplikacjaObslugiBazyDanych
             this.TextBox_Login = new System.Windows.Forms.TextBox();
             this.TextBox_Password = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.Label_Error = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@ namespace AplikacjaObslugiBazyDanych
             this.Button_Login.Name = "Button_Login";
             this.Button_Login.Size = new System.Drawing.Size(75, 23);
             this.Button_Login.TabIndex = 0;
-            this.Button_Login.Text = LoginFormRes.Login;
+            this.Button_Login.Text = global::AplikacjaObslugiBazyDanych.Resources.LoginFormRes.Login;
             this.Button_Login.UseVisualStyleBackColor = true;
             this.Button_Login.Click += new System.EventHandler(this.Button_Login_Click);
             // 
@@ -59,7 +59,7 @@ namespace AplikacjaObslugiBazyDanych
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = LoginFormRes.LoginLabel;
+            this.label1.Text = "Login:";
             // 
             // label2
             // 
@@ -69,7 +69,7 @@ namespace AplikacjaObslugiBazyDanych
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = LoginFormRes.PasswordLabel;
+            this.label2.Text = "Hasło:";
             // 
             // TextBox_Login
             // 
@@ -78,6 +78,7 @@ namespace AplikacjaObslugiBazyDanych
             this.TextBox_Login.Name = "TextBox_Login";
             this.TextBox_Login.Size = new System.Drawing.Size(250, 23);
             this.TextBox_Login.TabIndex = 3;
+            this.TextBox_Login.Text = "admin";
             // 
             // TextBox_Password
             // 
@@ -86,6 +87,7 @@ namespace AplikacjaObslugiBazyDanych
             this.TextBox_Password.Name = "TextBox_Password";
             this.TextBox_Password.Size = new System.Drawing.Size(249, 23);
             this.TextBox_Password.TabIndex = 4;
+            this.TextBox_Password.Text = "admin";
             this.TextBox_Password.UseSystemPasswordChar = true;
             // 
             // panel1
@@ -103,6 +105,15 @@ namespace AplikacjaObslugiBazyDanych
             this.panel1.Size = new System.Drawing.Size(360, 187);
             this.panel1.TabIndex = 5;
             // 
+            // Label_Error
+            // 
+            this.Label_Error.ForeColor = System.Drawing.Color.Red;
+            this.Label_Error.Location = new System.Drawing.Point(81, 157);
+            this.Label_Error.Name = "Label_Error";
+            this.Label_Error.Size = new System.Drawing.Size(191, 23);
+            this.Label_Error.TabIndex = 6;
+            this.Label_Error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label3
             // 
             this.label3.AllowDrop = true;
@@ -112,17 +123,8 @@ namespace AplikacjaObslugiBazyDanych
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(350, 46);
             this.label3.TabIndex = 5;
-            this.label3.Text = LoginFormRes.FormHeader;
+            this.label3.Text = "Aplikacja do zarządzania sklepem oraz składania zamówień";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Label_Error
-            // 
-            this.Label_Error.ForeColor = System.Drawing.Color.Red;
-            this.Label_Error.Location = new System.Drawing.Point(81, 157);
-            this.Label_Error.Name = "Label_Error";
-            this.Label_Error.Size = new System.Drawing.Size(191, 23);
-            this.Label_Error.TabIndex = 6;
-            this.Label_Error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
@@ -135,7 +137,7 @@ namespace AplikacjaObslugiBazyDanych
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = LoginFormRes.FormTitle;
+            this.Text = "Panel logowania";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

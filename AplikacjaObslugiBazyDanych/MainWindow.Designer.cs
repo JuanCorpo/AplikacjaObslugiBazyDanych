@@ -42,10 +42,25 @@ namespace AplikacjaObslugiBazyDanych
             this.RoleName = new System.Windows.Forms.Label();
             this.MyTimer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.EditParametersTypes = new System.Windows.Forms.Button();
+            this.EditStatuses = new System.Windows.Forms.Button();
+            this.EditCategories = new System.Windows.Forms.Button();
+            this.EditRole = new System.Windows.Forms.Button();
+            this.DeleteEmployee = new System.Windows.Forms.Button();
+            this.DeleteOrder = new System.Windows.Forms.Button();
+            this.DeleteClient = new System.Windows.Forms.Button();
+            this.DeleteProduct = new System.Windows.Forms.Button();
+            this.EditEmployee = new System.Windows.Forms.Button();
+            this.EditOrder = new System.Windows.Forms.Button();
+            this.EditClient = new System.Windows.Forms.Button();
+            this.EditProduct = new System.Windows.Forms.Button();
+            this.AddEmployee = new System.Windows.Forms.Button();
+            this.AddOrder = new System.Windows.Forms.Button();
+            this.AddClient = new System.Windows.Forms.Button();
+            this.AddProduct = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,14 +88,14 @@ namespace AplikacjaObslugiBazyDanych
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(777, 24);
+            this.panel1.Size = new System.Drawing.Size(775, 24);
             this.panel1.TabIndex = 1;
             // 
             // DateTime
             // 
             this.DateTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DateTime.AutoSize = true;
-            this.DateTime.Location = new System.Drawing.Point(657, 3);
+            this.DateTime.Location = new System.Drawing.Point(655, 3);
             this.DateTime.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
             this.DateTime.Name = "DateTime";
             this.DateTime.Size = new System.Drawing.Size(106, 13);
@@ -127,42 +142,217 @@ namespace AplikacjaObslugiBazyDanych
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.listBox1);
+            this.panel2.Controls.Add(this.EditParametersTypes);
+            this.panel2.Controls.Add(this.EditStatuses);
+            this.panel2.Controls.Add(this.EditCategories);
+            this.panel2.Controls.Add(this.EditRole);
+            this.panel2.Controls.Add(this.DeleteEmployee);
+            this.panel2.Controls.Add(this.DeleteOrder);
+            this.panel2.Controls.Add(this.DeleteClient);
+            this.panel2.Controls.Add(this.DeleteProduct);
+            this.panel2.Controls.Add(this.EditEmployee);
+            this.panel2.Controls.Add(this.EditOrder);
+            this.panel2.Controls.Add(this.EditClient);
+            this.panel2.Controls.Add(this.EditProduct);
+            this.panel2.Controls.Add(this.AddEmployee);
+            this.panel2.Controls.Add(this.AddOrder);
+            this.panel2.Controls.Add(this.AddClient);
+            this.panel2.Controls.Add(this.AddProduct);
             this.panel2.Location = new System.Drawing.Point(13, 43);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 471);
+            this.panel2.Size = new System.Drawing.Size(775, 471);
             this.panel2.TabIndex = 2;
             // 
-            // listBox1
+            // EditParametersTypes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "TODO",
-            "",
-            "dodaj produkt (admin)",
-            "edytuj produkt (admin)",
-            "usuń produkt (admin)",
-            "",
-            "dodaj pracownika (admin)",
-            "edytuj pracownika (admin)",
-            "usuń pracownika (admin)",
-            "",
-            "dodaj klienta (pracownik) (admin)",
-            "edytuj klienta (admin)",
-            "usuń klienta (admin)",
-            "",
-            "dodaj zamówienie (pracownik) (admin)",
-            "edytuj zamówienie (pracownik) (admin)",
-            "usuń zamówienie (pracownik) (admin)",
-            "",
-            "edytuj role (admin)",
-            "edytuj kategorie (admin)",
-            "edytuj statusy (admin)",
-            "edytuj typy parametrów (admin)"});
-            this.listBox1.Location = new System.Drawing.Point(6, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(244, 459);
-            this.listBox1.TabIndex = 0;
+            this.EditParametersTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditParametersTypes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditParametersTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditParametersTypes.Location = new System.Drawing.Point(580, 351);
+            this.EditParametersTypes.Name = "EditParametersTypes";
+            this.EditParametersTypes.Size = new System.Drawing.Size(187, 110);
+            this.EditParametersTypes.TabIndex = 15;
+            this.EditParametersTypes.Text = "Edytuj parametry";
+            this.EditParametersTypes.UseVisualStyleBackColor = true;
+            // 
+            // EditStatuses
+            // 
+            this.EditStatuses.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EditStatuses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditStatuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditStatuses.Location = new System.Drawing.Point(388, 351);
+            this.EditStatuses.Name = "EditStatuses";
+            this.EditStatuses.Size = new System.Drawing.Size(187, 110);
+            this.EditStatuses.TabIndex = 14;
+            this.EditStatuses.Text = "Edytuj statusy";
+            this.EditStatuses.UseVisualStyleBackColor = true;
+            // 
+            // EditCategories
+            // 
+            this.EditCategories.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EditCategories.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditCategories.Location = new System.Drawing.Point(195, 351);
+            this.EditCategories.Name = "EditCategories";
+            this.EditCategories.Size = new System.Drawing.Size(187, 110);
+            this.EditCategories.TabIndex = 13;
+            this.EditCategories.Text = "Edytuj kategorie";
+            this.EditCategories.UseVisualStyleBackColor = true;
+            // 
+            // EditRole
+            // 
+            this.EditRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditRole.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditRole.Location = new System.Drawing.Point(3, 351);
+            this.EditRole.Name = "EditRole";
+            this.EditRole.Size = new System.Drawing.Size(187, 110);
+            this.EditRole.TabIndex = 12;
+            this.EditRole.Text = "Edytuj role";
+            this.EditRole.UseVisualStyleBackColor = true;
+            // 
+            // DeleteEmployee
+            // 
+            this.DeleteEmployee.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DeleteEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteEmployee.Location = new System.Drawing.Point(580, 235);
+            this.DeleteEmployee.Name = "DeleteEmployee";
+            this.DeleteEmployee.Size = new System.Drawing.Size(187, 110);
+            this.DeleteEmployee.TabIndex = 11;
+            this.DeleteEmployee.Text = "Usuń pracownika";
+            this.DeleteEmployee.UseVisualStyleBackColor = true;
+            // 
+            // DeleteOrder
+            // 
+            this.DeleteOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DeleteOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteOrder.Location = new System.Drawing.Point(388, 235);
+            this.DeleteOrder.Name = "DeleteOrder";
+            this.DeleteOrder.Size = new System.Drawing.Size(187, 110);
+            this.DeleteOrder.TabIndex = 10;
+            this.DeleteOrder.Text = "Usuń zamówienie";
+            this.DeleteOrder.UseVisualStyleBackColor = true;
+            // 
+            // DeleteClient
+            // 
+            this.DeleteClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DeleteClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteClient.Location = new System.Drawing.Point(195, 237);
+            this.DeleteClient.Name = "DeleteClient";
+            this.DeleteClient.Size = new System.Drawing.Size(187, 110);
+            this.DeleteClient.TabIndex = 9;
+            this.DeleteClient.Text = "Usuń klienta";
+            this.DeleteClient.UseVisualStyleBackColor = true;
+            // 
+            // DeleteProduct
+            // 
+            this.DeleteProduct.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.DeleteProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DeleteProduct.Location = new System.Drawing.Point(3, 235);
+            this.DeleteProduct.Name = "DeleteProduct";
+            this.DeleteProduct.Size = new System.Drawing.Size(187, 110);
+            this.DeleteProduct.TabIndex = 8;
+            this.DeleteProduct.Text = "Usuń produkt";
+            this.DeleteProduct.UseVisualStyleBackColor = true;
+            // 
+            // EditEmployee
+            // 
+            this.EditEmployee.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.EditEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditEmployee.Location = new System.Drawing.Point(580, 119);
+            this.EditEmployee.Name = "EditEmployee";
+            this.EditEmployee.Size = new System.Drawing.Size(187, 110);
+            this.EditEmployee.TabIndex = 7;
+            this.EditEmployee.Text = "Edytuj pracownika";
+            this.EditEmployee.UseVisualStyleBackColor = true;
+            // 
+            // EditOrder
+            // 
+            this.EditOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EditOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditOrder.Location = new System.Drawing.Point(388, 119);
+            this.EditOrder.Name = "EditOrder";
+            this.EditOrder.Size = new System.Drawing.Size(187, 110);
+            this.EditOrder.TabIndex = 6;
+            this.EditOrder.Text = "Edytuj zamówienie";
+            this.EditOrder.UseVisualStyleBackColor = true;
+            // 
+            // EditClient
+            // 
+            this.EditClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EditClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditClient.Location = new System.Drawing.Point(195, 119);
+            this.EditClient.Name = "EditClient";
+            this.EditClient.Size = new System.Drawing.Size(187, 110);
+            this.EditClient.TabIndex = 5;
+            this.EditClient.Text = "Edytuj klienta";
+            this.EditClient.UseVisualStyleBackColor = true;
+            // 
+            // EditProduct
+            // 
+            this.EditProduct.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EditProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditProduct.Location = new System.Drawing.Point(3, 119);
+            this.EditProduct.Name = "EditProduct";
+            this.EditProduct.Size = new System.Drawing.Size(187, 110);
+            this.EditProduct.TabIndex = 4;
+            this.EditProduct.Text = "Edytuj produkt";
+            this.EditProduct.UseVisualStyleBackColor = true;
+            // 
+            // AddEmployee
+            // 
+            this.AddEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddEmployee.Location = new System.Drawing.Point(580, 3);
+            this.AddEmployee.Name = "AddEmployee";
+            this.AddEmployee.Size = new System.Drawing.Size(187, 110);
+            this.AddEmployee.TabIndex = 3;
+            this.AddEmployee.Text = "Dodaj pracownika";
+            this.AddEmployee.UseVisualStyleBackColor = true;
+            // 
+            // AddOrder
+            // 
+            this.AddOrder.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AddOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddOrder.Location = new System.Drawing.Point(388, 3);
+            this.AddOrder.Name = "AddOrder";
+            this.AddOrder.Size = new System.Drawing.Size(187, 110);
+            this.AddOrder.TabIndex = 2;
+            this.AddOrder.Text = "Dodaj zamówienie";
+            this.AddOrder.UseVisualStyleBackColor = true;
+            // 
+            // AddClient
+            // 
+            this.AddClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AddClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddClient.Location = new System.Drawing.Point(195, 3);
+            this.AddClient.Name = "AddClient";
+            this.AddClient.Size = new System.Drawing.Size(187, 110);
+            this.AddClient.TabIndex = 1;
+            this.AddClient.Text = "Dodaj klienta";
+            this.AddClient.UseVisualStyleBackColor = true;
+            // 
+            // AddProduct
+            // 
+            this.AddProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddProduct.Location = new System.Drawing.Point(3, 3);
+            this.AddProduct.Name = "AddProduct";
+            this.AddProduct.Size = new System.Drawing.Size(187, 110);
+            this.AddProduct.TabIndex = 0;
+            this.AddProduct.Text = "Dodaj produkt";
+            this.AddProduct.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -173,8 +363,19 @@ namespace AplikacjaObslugiBazyDanych
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(12, 520);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(778, 29);
+            this.panel3.Size = new System.Drawing.Size(776, 29);
             this.panel3.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(582, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(184, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Sekcja ___ 2018 All Rights Received";
             // 
             // label3
             // 
@@ -186,28 +387,18 @@ namespace AplikacjaObslugiBazyDanych
             this.label3.TabIndex = 0;
             this.label3.Text = "Aplikacja obsługi sklepu ";
             // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(584, 6);
-            this.label4.Margin = new System.Windows.Forms.Padding(6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Sekcja ___ 2018 All Rights Received";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 561);
+            this.ClientSize = new System.Drawing.Size(800, 561);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(600, 600);
+            this.MinimumSize = new System.Drawing.Size(815, 600);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.Resize += new System.EventHandler(this.MainWindow_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -234,9 +425,24 @@ namespace AplikacjaObslugiBazyDanych
         private System.Windows.Forms.Label DateTime;
         private Timer MyTimer;
         private Panel panel2;
-        private ListBox listBox1;
         private Panel panel3;
         private Label label4;
         private Label label3;
+        private Button EditParametersTypes;
+        private Button EditStatuses;
+        private Button EditCategories;
+        private Button EditRole;
+        private Button DeleteEmployee;
+        private Button DeleteOrder;
+        private Button DeleteClient;
+        private Button DeleteProduct;
+        private Button EditEmployee;
+        private Button EditOrder;
+        private Button EditClient;
+        private Button EditProduct;
+        private Button AddEmployee;
+        private Button AddOrder;
+        private Button AddClient;
+        private Button AddProduct;
     }
 }

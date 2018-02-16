@@ -32,6 +32,7 @@ namespace AplikacjaObslugiBazyDanych
                 Label_Error.Text = GlobalRes.Empty;
                 employee.Password = null;
                 UserHelper.Employee = employee;
+                UserHelper.LoggedIn = true;
 
                 this.Hide();
                 var form2 = new MainWindow();

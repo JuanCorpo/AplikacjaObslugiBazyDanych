@@ -8,20 +8,26 @@ namespace AplikacjaObslugiBazyDanych.Code.Enums
 {
     public enum Claims
     {
-        AddProducts = 0,
-        EditProducts = 1,
-        RemoveProducts = 2,
+        AddProducts = 1,
+        EditProducts = 2,
+        RemoveProducts = 3,
 
-        AddCustomers = 3,
-        EditCustomers = 4,
-        RemoveCustomers = 5,
+        AddCustomers = 4,
+        EditCustomers = 5,
+        RemoveCustomers = 6,
 
-        PlaceOrders = 6,
-        EditOrders = 7,
+        PlaceOrders = 7,
+        EditOrders = 8,
 
-        AddEmployee = 8,
-        EditEmployee = 9,
-        RemoveEmployee = 10
+        AddEmployee = 9,
+        EditEmployee = 10,
+        RemoveEmployee = 11,
 
+        RemoveOrders = 12,
+
+        EditRoles = 13,
+        EditCategories = 14,
+        EditStatuses = 15,
+        EditParameterTypes = 16,
     }
 }
