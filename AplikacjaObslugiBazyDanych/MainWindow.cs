@@ -131,91 +131,91 @@ namespace AplikacjaObslugiBazyDanych
         private void AddProduct_Click(object sender, EventArgs e)
         {
             var window = new AddProductWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditProduct_Click(object sender, EventArgs e)
         {
             var window = new EditProductWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void DeleteProduct_Click(object sender, EventArgs e)
         {
             var window = new DeleteProductWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void AddClient_Click(object sender, EventArgs e)
         {
             var window = new AddCustomerWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditClient_Click(object sender, EventArgs e)
         {
             var window = new EditCustomerWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void DeleteClient_Click(object sender, EventArgs e)
         {
             var window = new DeleteCustomerWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void AddOrder_Click(object sender, EventArgs e)
         {
             var window = new AddOrderWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditOrder_Click(object sender, EventArgs e)
         {
             var window = new EditOrderWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void DeleteOrder_Click(object sender, EventArgs e)
         {
             var window = new DeleteOrderWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void AddEmployee_Click(object sender, EventArgs e)
         {
             var window = new AddEmployeeWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
             var window = new EditEmployeeWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void DeleteEmployee_Click(object sender, EventArgs e)
         {
             var window = new DeleteEmployeeWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditRole_Click(object sender, EventArgs e)
         {
             var window = new EditRoleWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditCategories_Click(object sender, EventArgs e)
         {
             var window = new EditCategoryWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditStatuses_Click(object sender, EventArgs e)
         {
             var window = new EditStatusWindow();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void EditParametersTypes_Click(object sender, EventArgs e)

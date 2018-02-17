@@ -49,11 +49,11 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.DataTable);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 557);
+            this.panel1.Size = new System.Drawing.Size(551, 556);
             this.panel1.TabIndex = 0;
             // 
             // DataTable
@@ -71,7 +71,7 @@
             this.ParameterId});
             this.DataTable.Location = new System.Drawing.Point(3, 3);
             this.DataTable.Name = "DataTable";
-            this.DataTable.Size = new System.Drawing.Size(548, 551);
+            this.DataTable.Size = new System.Drawing.Size(545, 550);
             this.DataTable.TabIndex = 0;
             // 
             // Index
@@ -118,6 +118,8 @@
             // 
             // Exit
             // 
+            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit.Location = new System.Drawing.Point(3, 501);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(194, 50);
@@ -128,6 +130,8 @@
             // 
             // Save
             // 
+            this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Save.Location = new System.Drawing.Point(3, 415);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(194, 50);
@@ -138,6 +142,8 @@
             // 
             // RemoveSelectedRow
             // 
+            this.RemoveSelectedRow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveSelectedRow.Location = new System.Drawing.Point(3, 59);
             this.RemoveSelectedRow.Name = "RemoveSelectedRow";
             this.RemoveSelectedRow.Size = new System.Drawing.Size(194, 50);
@@ -148,6 +154,8 @@
             // 
             // AddNewRow
             // 
+            this.AddNewRow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddNewRow.Location = new System.Drawing.Point(3, 3);
             this.AddNewRow.Name = "AddNewRow";
             this.AddNewRow.Size = new System.Drawing.Size(194, 50);
@@ -170,7 +178,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
