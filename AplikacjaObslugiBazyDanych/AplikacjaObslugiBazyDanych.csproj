@@ -227,11 +227,11 @@
     <Compile Include="Views\EditOrderWindow.Designer.cs">
       <DependentUpon>EditOrderWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditParameterWindow.cs">
+    <Compile Include="Views\EditParametersWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EditParameterWindow.Designer.cs">
-      <DependentUpon>EditParameterWindow.cs</DependentUpon>
+    <Compile Include="Views\EditParametersWindow.Designer.cs">
+      <DependentUpon>EditParametersWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EditProductWindow.cs">
       <SubType>Form</SubType>
@@ -356,8 +356,8 @@
     <EmbeddedResource Include="Views\EditOrderWindow.resx">
       <DependentUpon>EditOrderWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EditParameterWindow.resx">
-      <DependentUpon>EditParameterWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EditParametersWindow.resx">
+      <DependentUpon>EditParametersWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditProductWindow.resx">
       <DependentUpon>EditProductWindow.cs</DependentUpon>

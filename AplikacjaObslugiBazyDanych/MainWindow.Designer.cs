@@ -362,7 +362,7 @@ namespace AplikacjaObslugiBazyDanych
             // 
             this.AddProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddProduct.Location = new System.Drawing.Point(3, 3);
+            this.AddProduct.Location = new System.Drawing.Point(2, 3);
             this.AddProduct.Name = "AddProduct";
             this.AddProduct.Size = new System.Drawing.Size(187, 110);
             this.AddProduct.TabIndex = 0;

@@ -47,7 +47,7 @@ namespace AplikacjaObslugiBazyDanych
             {
                 AddEmployee.Enabled = false;
             }
-            
+
             if (!UserHelper.IsInClaim(Claims.EditEmployee))
             {
                 EditEmployee.Enabled = false;
@@ -64,7 +64,7 @@ namespace AplikacjaObslugiBazyDanych
             {
                 EditProduct.Enabled = false;
             }
-            
+
             if (!UserHelper.IsInClaim(Claims.RemoveEmployee))
             {
                 DeleteEmployee.Enabled = false;
@@ -102,10 +102,10 @@ namespace AplikacjaObslugiBazyDanych
 
         private void MainWindow_Resize(object sender, EventArgs e)
         {
-            var width = panel2.Width / 4;
-            var height = panel2.Height / 4;
+            var width = (panel2.Width - 24) / 4;
+            var height = (panel2.Height - 24) / 4;
 
-            int positionX = 0, positionY = 0;
+            int positionX = 3, positionY = 3;
             var count = 1;
 
             buttons.Select(a =>
@@ -113,13 +113,13 @@ namespace AplikacjaObslugiBazyDanych
                 a.Width = width;
                 a.Height = height;
 
-                a.Location = new Point(positionX,positionY);
+                a.Location = new Point(positionX, positionY);
 
-                positionX += width;
+                positionX += width + 6;
                 if (count % 4 == 0)
                 {
-                    positionY += height;
-                    positionX = 0;
+                    positionY += height + 6;
+                    positionX = 3;
                 }
 
                 count++;
@@ -220,8 +220,9 @@ namespace AplikacjaObslugiBazyDanych
 
         private void EditParametersTypes_Click(object sender, EventArgs e)
         {
-            var window = new EditParameterWindow();
-            window.Show();
+            var window = new EditParametersWindow();
+            window.ShowDialog();
+            
         }
     }
 }
