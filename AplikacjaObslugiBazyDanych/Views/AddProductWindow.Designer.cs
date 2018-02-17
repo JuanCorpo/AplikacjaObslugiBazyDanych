@@ -1,4 +1,4 @@
-﻿namespace AplikacjaObslugiBazyDanych
+﻿namespace AplikacjaObslugiBazyDanych.Views
 {
     partial class AddProductWindow
     {

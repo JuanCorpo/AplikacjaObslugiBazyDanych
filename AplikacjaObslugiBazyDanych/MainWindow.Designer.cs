@@ -174,6 +174,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditParametersTypes.TabIndex = 15;
             this.EditParametersTypes.Text = "Edytuj parametry";
             this.EditParametersTypes.UseVisualStyleBackColor = true;
+            this.EditParametersTypes.Click += new System.EventHandler(this.EditParametersTypes_Click);
             // 
             // EditStatuses
             // 
@@ -186,6 +187,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditStatuses.TabIndex = 14;
             this.EditStatuses.Text = "Edytuj statusy";
             this.EditStatuses.UseVisualStyleBackColor = true;
+            this.EditStatuses.Click += new System.EventHandler(this.EditStatuses_Click);
             // 
             // EditCategories
             // 
@@ -198,6 +200,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditCategories.TabIndex = 13;
             this.EditCategories.Text = "Edytuj kategorie";
             this.EditCategories.UseVisualStyleBackColor = true;
+            this.EditCategories.Click += new System.EventHandler(this.EditCategories_Click);
             // 
             // EditRole
             // 
@@ -210,6 +213,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditRole.TabIndex = 12;
             this.EditRole.Text = "Edytuj role";
             this.EditRole.UseVisualStyleBackColor = true;
+            this.EditRole.Click += new System.EventHandler(this.EditRole_Click);
             // 
             // DeleteEmployee
             // 
@@ -222,6 +226,7 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteEmployee.TabIndex = 11;
             this.DeleteEmployee.Text = "Usuń pracownika";
             this.DeleteEmployee.UseVisualStyleBackColor = true;
+            this.DeleteEmployee.Click += new System.EventHandler(this.DeleteEmployee_Click);
             // 
             // DeleteOrder
             // 
@@ -234,6 +239,7 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteOrder.TabIndex = 10;
             this.DeleteOrder.Text = "Usuń zamówienie";
             this.DeleteOrder.UseVisualStyleBackColor = true;
+            this.DeleteOrder.Click += new System.EventHandler(this.DeleteOrder_Click);
             // 
             // DeleteClient
             // 
@@ -246,6 +252,7 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteClient.TabIndex = 9;
             this.DeleteClient.Text = "Usuń klienta";
             this.DeleteClient.UseVisualStyleBackColor = true;
+            this.DeleteClient.Click += new System.EventHandler(this.DeleteClient_Click);
             // 
             // DeleteProduct
             // 
@@ -258,6 +265,7 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteProduct.TabIndex = 8;
             this.DeleteProduct.Text = "Usuń produkt";
             this.DeleteProduct.UseVisualStyleBackColor = true;
+            this.DeleteProduct.Click += new System.EventHandler(this.DeleteProduct_Click);
             // 
             // EditEmployee
             // 
@@ -270,6 +278,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditEmployee.TabIndex = 7;
             this.EditEmployee.Text = "Edytuj pracownika";
             this.EditEmployee.UseVisualStyleBackColor = true;
+            this.EditEmployee.Click += new System.EventHandler(this.EditEmployee_Click);
             // 
             // EditOrder
             // 
@@ -282,6 +291,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditOrder.TabIndex = 6;
             this.EditOrder.Text = "Edytuj zamówienie";
             this.EditOrder.UseVisualStyleBackColor = true;
+            this.EditOrder.Click += new System.EventHandler(this.EditOrder_Click);
             // 
             // EditClient
             // 
@@ -294,6 +304,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditClient.TabIndex = 5;
             this.EditClient.Text = "Edytuj klienta";
             this.EditClient.UseVisualStyleBackColor = true;
+            this.EditClient.Click += new System.EventHandler(this.EditClient_Click);
             // 
             // EditProduct
             // 
@@ -306,6 +317,7 @@ namespace AplikacjaObslugiBazyDanych
             this.EditProduct.TabIndex = 4;
             this.EditProduct.Text = "Edytuj produkt";
             this.EditProduct.UseVisualStyleBackColor = true;
+            this.EditProduct.Click += new System.EventHandler(this.EditProduct_Click);
             // 
             // AddEmployee
             // 
@@ -318,6 +330,7 @@ namespace AplikacjaObslugiBazyDanych
             this.AddEmployee.TabIndex = 3;
             this.AddEmployee.Text = "Dodaj pracownika";
             this.AddEmployee.UseVisualStyleBackColor = true;
+            this.AddEmployee.Click += new System.EventHandler(this.AddEmployee_Click);
             // 
             // AddOrder
             // 
@@ -330,6 +343,7 @@ namespace AplikacjaObslugiBazyDanych
             this.AddOrder.TabIndex = 2;
             this.AddOrder.Text = "Dodaj zamówienie";
             this.AddOrder.UseVisualStyleBackColor = true;
+            this.AddOrder.Click += new System.EventHandler(this.AddOrder_Click);
             // 
             // AddClient
             // 
@@ -342,6 +356,7 @@ namespace AplikacjaObslugiBazyDanych
             this.AddClient.TabIndex = 1;
             this.AddClient.Text = "Dodaj klienta";
             this.AddClient.UseVisualStyleBackColor = true;
+            this.AddClient.Click += new System.EventHandler(this.AddClient_Click);
             // 
             // AddProduct
             // 
@@ -353,6 +368,7 @@ namespace AplikacjaObslugiBazyDanych
             this.AddProduct.TabIndex = 0;
             this.AddProduct.Text = "Dodaj produkt";
             this.AddProduct.UseVisualStyleBackColor = true;
+            this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
             // 
             // panel3
             // 
