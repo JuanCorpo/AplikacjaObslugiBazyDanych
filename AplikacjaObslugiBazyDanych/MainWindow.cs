@@ -30,7 +30,14 @@ namespace AplikacjaObslugiBazyDanych
                 DeleteEmployee,DeleteOrder,DeleteClient,DeleteProduct,
                 EditParametersTypes,EditStatuses,EditCategories,EditRole
             };
+            ValidateRights();
+        }
 
+        private void ValidateRights()
+        {
+            // TODO !!
+            // TODO Aktualizować uprawnienia pracownika
+            // TODO !!
             if (!UserHelper.IsInClaim(Claims.AddProducts))
             {
                 AddProduct.Enabled = false;
@@ -132,97 +139,113 @@ namespace AplikacjaObslugiBazyDanych
         {
             var window = new AddProductWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditProduct_Click(object sender, EventArgs e)
         {
             var window = new EditProductWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void DeleteProduct_Click(object sender, EventArgs e)
         {
             var window = new DeleteProductWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void AddClient_Click(object sender, EventArgs e)
         {
             var window = new AddCustomerWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditClient_Click(object sender, EventArgs e)
         {
             var window = new EditCustomerWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void DeleteClient_Click(object sender, EventArgs e)
         {
             var window = new DeleteCustomerWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void AddOrder_Click(object sender, EventArgs e)
         {
             var window = new AddOrderWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditOrder_Click(object sender, EventArgs e)
         {
             var window = new EditOrderWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void DeleteOrder_Click(object sender, EventArgs e)
         {
             var window = new DeleteOrderWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void AddEmployee_Click(object sender, EventArgs e)
         {
             var window = new AddEmployeeWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
             var window = new EditEmployeeWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void DeleteEmployee_Click(object sender, EventArgs e)
         {
             var window = new DeleteEmployeeWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditRole_Click(object sender, EventArgs e)
         {
             var window = new EditRoleWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditCategories_Click(object sender, EventArgs e)
         {
             var window = new EditCategoryWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditStatuses_Click(object sender, EventArgs e)
         {
             var window = new EditStatusWindow();
             window.ShowDialog();
+            ValidateRights();
         }
 
         private void EditParametersTypes_Click(object sender, EventArgs e)
         {
             var window = new EditParametersWindow();
             window.ShowDialog();
-            
+            ValidateRights();
+
         }
     }
 }

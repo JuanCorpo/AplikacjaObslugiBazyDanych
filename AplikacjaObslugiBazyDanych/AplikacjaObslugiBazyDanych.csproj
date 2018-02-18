@@ -118,6 +118,10 @@
     <Compile Include="Migrations\201802062310445_added_InitRelations.Designer.cs">
       <DependentUpon>201802062310445_added_InitRelations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802181843517_addedNullabeEmployeeId.cs" />
+    <Compile Include="Migrations\201802181843517_addedNullabeEmployeeId.Designer.cs">
+      <DependentUpon>201802181843517_addedNullabeEmployeeId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -298,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802062310445_added_InitRelations.resx">
       <DependentUpon>201802062310445_added_InitRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802181843517_addedNullabeEmployeeId.resx">
+      <DependentUpon>201802181843517_addedNullabeEmployeeId.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

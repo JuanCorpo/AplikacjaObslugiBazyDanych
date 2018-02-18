@@ -59,7 +59,6 @@ namespace AplikacjaObslugiBazyDanych.Views
                     if (element != null)
                     {
                         context.Statuses.Remove(element);
-                        context.SaveChanges();
                     }
                     DataTable.Rows.RemoveAt(selected[0].RowIndex);
                 }

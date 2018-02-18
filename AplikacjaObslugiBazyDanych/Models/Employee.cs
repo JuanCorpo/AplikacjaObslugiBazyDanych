@@ -29,7 +29,7 @@ namespace AplikacjaObslugiBazyDanych.Models
         public string Email { get; set; }
 
         [Display(ResourceType = typeof(EmployeesRes), Name = "Role")]
-        public int RoleId { get; set; }
+        public int? RoleId { get; set; }
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
 

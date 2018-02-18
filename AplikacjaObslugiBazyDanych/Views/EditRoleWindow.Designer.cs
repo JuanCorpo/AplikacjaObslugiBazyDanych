@@ -28,337 +28,343 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.RoleTable = new System.Windows.Forms.DataGridView();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleClaims = new System.Windows.Forms.DataGridView();
+            this.ClaimName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClaimId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ExcludedRoleClaims = new System.Windows.Forms.DataGridView();
+            this.ClaimsFree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClaimIdFree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.AddClaimToRole = new System.Windows.Forms.Button();
+            this.RevokeRoleClaim = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
+            this.EmployeesTable = new System.Windows.Forms.DataGridView();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.RevokeEmployeeRole = new System.Windows.Forms.Button();
+            this.AddEmployeeToRole = new System.Windows.Forms.Button();
+            this.AddRole = new System.Windows.Forms.Button();
+            this.RemoveRole = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
+            this.EmployeesList = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleClaims)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExcludedRoleClaims)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeesTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // RoleTable
             // 
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(430, 195);
-            this.panel2.TabIndex = 14;
+            this.RoleTable.AllowUserToAddRows = false;
+            this.RoleTable.AllowUserToDeleteRows = false;
+            this.RoleTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.RoleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoleTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoleName,
+            this.Id});
+            this.RoleTable.Location = new System.Drawing.Point(12, 25);
+            this.RoleTable.Name = "RoleTable";
+            this.RoleTable.RowHeadersVisible = false;
+            this.RoleTable.Size = new System.Drawing.Size(150, 524);
+            this.RoleTable.TabIndex = 0;
+            this.RoleTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoleTable_CellContentClick);
+            this.RoleTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoleTable_CellContentClick);
             // 
-            // label7
+            // RoleName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(172, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Wybór roli";
+            this.RoleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoleName.HeaderText = "Nazwa grupy";
+            this.RoleName.Name = "RoleName";
             // 
-            // button5
+            // Id
             // 
-            this.button5.Location = new System.Drawing.Point(262, 39);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Usuń rolę";
-            this.button5.UseVisualStyleBackColor = true;
+            this.Id.HeaderText = "#";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
-            // comboBox3
+            // RoleClaims
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(19, 36);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(147, 21);
-            this.comboBox3.TabIndex = 7;
+            this.RoleClaims.AllowUserToAddRows = false;
+            this.RoleClaims.AllowUserToDeleteRows = false;
+            this.RoleClaims.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.RoleClaims.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoleClaims.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClaimName,
+            this.ClaimId});
+            this.RoleClaims.Location = new System.Drawing.Point(168, 25);
+            this.RoleClaims.Name = "RoleClaims";
+            this.RoleClaims.RowHeadersVisible = false;
+            this.RoleClaims.Size = new System.Drawing.Size(150, 524);
+            this.RoleClaims.TabIndex = 1;
+            this.RoleClaims.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoleClaims_CellContentClick);
             // 
-            // label4
+            // ClaimName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Edycja roli";
+            this.ClaimName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClaimName.HeaderText = "Uprawnienia";
+            this.ClaimName.Name = "ClaimName";
+            this.ClaimName.ReadOnly = true;
             // 
-            // button3
+            // ClaimId
             // 
-            this.button3.Location = new System.Drawing.Point(156, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Anuluj";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(172, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nazwa roli";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(19, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(147, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(59, 154);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Ok";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 21);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Wybierz Uprawnienie";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(19, 116);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(147, 21);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(175, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Lista uprawnień";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(288, 87);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 23);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Dodaj";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(288, 119);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 23);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Usuń uprawnienie";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.comboBox5);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Location = new System.Drawing.Point(12, 213);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 195);
-            this.panel1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(288, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Usuń uprawnienie";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(288, 60);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Dodaj";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ClaimId.HeaderText = "#";
+            this.ClaimId.Name = "ClaimId";
+            this.ClaimId.ReadOnly = true;
+            this.ClaimId.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(175, 97);
+            this.label1.Location = new System.Drawing.Point(38, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Lista uprawnień";
+            this.label1.Size = new System.Drawing.Size(105, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Grupy użytkowników";
             // 
-            // comboBox4
+            // label2
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(19, 89);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(147, 21);
-            this.comboBox4.TabIndex = 12;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Uprawnienia grupy";
+            // 
+            // ExcludedRoleClaims
+            // 
+            this.ExcludedRoleClaims.AllowUserToAddRows = false;
+            this.ExcludedRoleClaims.AllowUserToDeleteRows = false;
+            this.ExcludedRoleClaims.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ExcludedRoleClaims.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ExcludedRoleClaims.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClaimsFree,
+            this.ClaimIdFree});
+            this.ExcludedRoleClaims.Location = new System.Drawing.Point(350, 25);
+            this.ExcludedRoleClaims.Name = "ExcludedRoleClaims";
+            this.ExcludedRoleClaims.RowHeadersVisible = false;
+            this.ExcludedRoleClaims.Size = new System.Drawing.Size(150, 524);
+            this.ExcludedRoleClaims.TabIndex = 4;
+            this.ExcludedRoleClaims.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExcludedRoleClaims_CellClick);
+            // 
+            // ClaimsFree
+            // 
+            this.ClaimsFree.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClaimsFree.HeaderText = "Uprawnienia";
+            this.ClaimsFree.Name = "ClaimsFree";
+            this.ClaimsFree.ReadOnly = true;
+            // 
+            // ClaimIdFree
+            // 
+            this.ClaimIdFree.HeaderText = "#";
+            this.ClaimIdFree.Name = "ClaimIdFree";
+            this.ClaimIdFree.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(175, 70);
+            this.label3.Location = new System.Drawing.Point(368, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Wybierz Uprawnienie";
+            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Dostępne uprawnienia";
             // 
-            // comboBox5
+            // AddClaimToRole
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(19, 62);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(147, 21);
-            this.comboBox5.TabIndex = 10;
+            this.AddClaimToRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddClaimToRole.Location = new System.Drawing.Point(324, 257);
+            this.AddClaimToRole.Name = "AddClaimToRole";
+            this.AddClaimToRole.Size = new System.Drawing.Size(20, 20);
+            this.AddClaimToRole.TabIndex = 6;
+            this.AddClaimToRole.Text = "<";
+            this.AddClaimToRole.UseVisualStyleBackColor = true;
+            this.AddClaimToRole.Click += new System.EventHandler(this.AddClaimToRole_Click);
             // 
-            // label9
+            // RevokeRoleClaim
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 11);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Dodawanie roli";
+            this.RevokeRoleClaim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RevokeRoleClaim.Location = new System.Drawing.Point(324, 283);
+            this.RevokeRoleClaim.Name = "RevokeRoleClaim";
+            this.RevokeRoleClaim.Size = new System.Drawing.Size(20, 20);
+            this.RevokeRoleClaim.TabIndex = 7;
+            this.RevokeRoleClaim.Text = ">";
+            this.RevokeRoleClaim.UseVisualStyleBackColor = true;
+            this.RevokeRoleClaim.Click += new System.EventHandler(this.RevokeRoleClaim_Click);
             // 
-            // button9
+            // Exit
             // 
-            this.button9.Location = new System.Drawing.Point(156, 127);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Anuluj";
-            this.button9.UseVisualStyleBackColor = true;
+            this.Exit.Location = new System.Drawing.Point(662, 499);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(116, 50);
+            this.Exit.TabIndex = 10;
+            this.Exit.Text = "Zamknij";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // label10
+            // EmployeesTable
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(172, 43);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Nazwa roli";
+            this.EmployeesTable.AllowUserToAddRows = false;
+            this.EmployeesTable.AllowUserToDeleteRows = false;
+            this.EmployeesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmployeesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EmployeeName,
+            this.EmployeeId});
+            this.EmployeesTable.Location = new System.Drawing.Point(506, 25);
+            this.EmployeesTable.Name = "EmployeesTable";
+            this.EmployeesTable.RowHeadersVisible = false;
+            this.EmployeesTable.Size = new System.Drawing.Size(150, 524);
+            this.EmployeesTable.TabIndex = 11;
+            this.EmployeesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployeesTable_CellContentClick);
             // 
-            // textBox1
+            // EmployeeName
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 20);
-            this.textBox1.TabIndex = 3;
+            this.EmployeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EmployeeName.HeaderText = "Pracownik";
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
             // 
-            // button10
+            // EmployeeId
             // 
-            this.button10.Location = new System.Drawing.Point(59, 127);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "Ok";
-            this.button10.UseVisualStyleBackColor = true;
+            this.EmployeeId.HeaderText = "#";
+            this.EmployeeId.Name = "EmployeeId";
+            this.EmployeeId.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(528, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Pracownicy w grupie";
+            // 
+            // RevokeEmployeeRole
+            // 
+            this.RevokeEmployeeRole.Location = new System.Drawing.Point(662, 25);
+            this.RevokeEmployeeRole.Name = "RevokeEmployeeRole";
+            this.RevokeEmployeeRole.Size = new System.Drawing.Size(116, 50);
+            this.RevokeEmployeeRole.TabIndex = 13;
+            this.RevokeEmployeeRole.Text = "Usuń pracownika z grupy";
+            this.RevokeEmployeeRole.UseVisualStyleBackColor = true;
+            this.RevokeEmployeeRole.Click += new System.EventHandler(this.RevokeEmployeeRole_Click);
+            // 
+            // AddEmployeeToRole
+            // 
+            this.AddEmployeeToRole.Location = new System.Drawing.Point(662, 81);
+            this.AddEmployeeToRole.Name = "AddEmployeeToRole";
+            this.AddEmployeeToRole.Size = new System.Drawing.Size(116, 50);
+            this.AddEmployeeToRole.TabIndex = 14;
+            this.AddEmployeeToRole.Text = "Dodaj pracownika do grupy";
+            this.AddEmployeeToRole.UseVisualStyleBackColor = true;
+            this.AddEmployeeToRole.Click += new System.EventHandler(this.AddEmployeeToRole_Click);
+            // 
+            // AddRole
+            // 
+            this.AddRole.Location = new System.Drawing.Point(662, 201);
+            this.AddRole.Name = "AddRole";
+            this.AddRole.Size = new System.Drawing.Size(116, 50);
+            this.AddRole.TabIndex = 15;
+            this.AddRole.Text = "Dodaj nową grupe";
+            this.AddRole.UseVisualStyleBackColor = true;
+            this.AddRole.Click += new System.EventHandler(this.AddRole_Click);
+            // 
+            // RemoveRole
+            // 
+            this.RemoveRole.Location = new System.Drawing.Point(662, 257);
+            this.RemoveRole.Name = "RemoveRole";
+            this.RemoveRole.Size = new System.Drawing.Size(116, 50);
+            this.RemoveRole.TabIndex = 16;
+            this.RemoveRole.Text = "Usuń wybraną grupe";
+            this.RemoveRole.UseVisualStyleBackColor = true;
+            this.RemoveRole.Click += new System.EventHandler(this.RemoveRole_Click);
+            // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(662, 389);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(116, 50);
+            this.Save.TabIndex = 17;
+            this.Save.Text = "Zapisz";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // EmployeesList
+            // 
+            this.EmployeesList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EmployeesList.FormattingEnabled = true;
+            this.EmployeesList.Location = new System.Drawing.Point(662, 137);
+            this.EmployeesList.Name = "EmployeesList";
+            this.EmployeesList.Size = new System.Drawing.Size(116, 21);
+            this.EmployeesList.TabIndex = 18;
             // 
             // EditRoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 446);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.EmployeesList);
+            this.Controls.Add(this.Save);
+            this.Controls.Add(this.RemoveRole);
+            this.Controls.Add(this.AddRole);
+            this.Controls.Add(this.AddEmployeeToRole);
+            this.Controls.Add(this.RevokeEmployeeRole);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.EmployeesTable);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.RevokeRoleClaim);
+            this.Controls.Add(this.AddClaimToRole);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ExcludedRoleClaims);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RoleClaims);
+            this.Controls.Add(this.RoleTable);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "EditRoleWindow";
             this.Text = "EditRoleWindow";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleClaims)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExcludedRoleClaims)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeesTable)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView RoleTable;
+        private System.Windows.Forms.DataGridView RoleClaims;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView ExcludedRoleClaims;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button AddClaimToRole;
+        private System.Windows.Forms.Button RevokeRoleClaim;
+        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.DataGridView EmployeesTable;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button RevokeEmployeeRole;
+        private System.Windows.Forms.Button AddEmployeeToRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimsFree;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimIdFree;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimId;
+        private System.Windows.Forms.Button AddRole;
+        private System.Windows.Forms.Button RemoveRole;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.ComboBox EmployeesList;
     }
 }
