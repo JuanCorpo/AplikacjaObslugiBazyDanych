@@ -17,7 +17,6 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class EditRoleWindow : Form
     {
-        DatabaseContext context = new DatabaseContext();
         private List<Role> roles;
         private List<Claim> allClaims;
         private List<RoleClaim> claims;
@@ -33,8 +32,11 @@ namespace AplikacjaObslugiBazyDanych.Views
             AddClaimToRole.Enabled = false;
             RevokeRoleClaim.Enabled = false;
 
-            allClaims = context.Claims.ToList();
-            allEmployees = context.Employees.ToList();
+            using (var context = new DatabaseContext())
+            {
+                allClaims = context.Claims.ToList();
+                allEmployees = context.Employees.ToList();
+            }
 
             UpdateRolesTable();
         }
@@ -74,13 +76,16 @@ namespace AplikacjaObslugiBazyDanych.Views
                 var roleRowId = RoleTable.SelectedCells[0].RowIndex;
                 var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
 
-                var entry = context.RolesClaims.SingleOrDefault(a => a.RoleId == roleId && a.ClaimId == claimId);
-                if (entry != null)
+                using (var context = new DatabaseContext())
                 {
-                    context.RolesClaims.Remove(entry);
-                    context.SaveChanges();
-                    UpdateRolesClaimsTable(roleId);
-                    UpdateFreeRoleClaims(roleId);
+                    var entry = context.RolesClaims.SingleOrDefault(a => a.RoleId == roleId && a.ClaimId == claimId);
+                    if (entry != null)
+                    {
+                        context.RolesClaims.Remove(entry);
+                        context.SaveChanges();
+                        UpdateRolesClaimsTable(roleId);
+                        UpdateFreeRoleClaims(roleId);
+                    }
                 }
             }
         }
@@ -101,8 +106,11 @@ namespace AplikacjaObslugiBazyDanych.Views
                     RoleId = roleId
                 };
 
-                context.RolesClaims.Add(newEntry);
-                context.SaveChanges();
+                using (var context = new DatabaseContext())
+                {
+                    context.RolesClaims.Add(newEntry);
+                    context.SaveChanges();
+                }
                 UpdateRolesClaimsTable(roleId);
                 UpdateFreeRoleClaims(roleId);
             }
@@ -117,13 +125,18 @@ namespace AplikacjaObslugiBazyDanych.Views
         {
             ClearTable(RoleClaims);
 
-            claims = context.RolesClaims.Where(a => a.RoleId == roleId).ToList();
-
-            foreach (var claim in claims)
+            using (var context = new DatabaseContext())
             {
-                RoleClaims.RowCount++;
-                RoleClaims.Rows[RoleClaims.RowCount - 1].Cells[0].Value = claim.Claim.ClaimName;
-                RoleClaims.Rows[RoleClaims.RowCount - 1].Cells[1].Value = claim.ClaimId;
+                claims = context.RolesClaims.Where(a => a.RoleId == roleId).ToList();
+
+
+                foreach (var claim in claims)
+                {
+                    RoleClaims.RowCount++;
+                    RoleClaims.Rows[RoleClaims.RowCount - 1].Cells[0].Value = claim.Claim.ClaimName;
+                    RoleClaims.Rows[RoleClaims.RowCount - 1].Cells[1].Value = claim.ClaimId;
+                }
+
             }
         }
 
@@ -143,26 +156,33 @@ namespace AplikacjaObslugiBazyDanych.Views
 
         private void UpdateEmployeesList(int roleId)
         {
-            var employees = context.Employees.Where(a => a.RoleId == roleId).ToList();
-
-            EmployeesList.Items.Clear();
-            var notAssigned = allEmployees.Where(a => employees.All(b => b.EmployeeId != a.EmployeeId && a.RoleId == null)).ToList();
-            EmployeesList.Items.AddRange(notAssigned.Select(a => a.GetFullName()).ToArray());
-
-            ClearTable(EmployeesTable);
-
-            foreach (var emp in employees)
+            using (var context = new DatabaseContext())
             {
-                EmployeesTable.RowCount++;
-                EmployeesTable.Rows[EmployeesTable.RowCount - 1].Cells[0].Value = emp.GetFullName();
-                EmployeesTable.Rows[EmployeesTable.RowCount - 1].Cells[1].Value = emp.EmployeeId;
+                List<Employee> employees;
+
+                employees = context.Employees.Where(a => a.RoleId == roleId).ToList();
+
+                EmployeesList.Items.Clear();
+                var notAssigned = allEmployees.Where(a => employees.All(b => b.EmployeeId != a.EmployeeId && a.RoleId == null)).ToList();
+                EmployeesList.Items.AddRange(notAssigned.Select(a => a.GetFullName()).ToArray());
+
+                ClearTable(EmployeesTable);
+
+                foreach (var emp in employees)
+                {
+                    EmployeesTable.RowCount++;
+                    EmployeesTable.Rows[EmployeesTable.RowCount - 1].Cells[0].Value = emp.GetFullName();
+                    EmployeesTable.Rows[EmployeesTable.RowCount - 1].Cells[1].Value = emp.EmployeeId;
+                }
             }
         }
 
         private void UpdateRolesTable()
         {
-            roles = context.Roles.ToList();
-
+            using (var context = new DatabaseContext())
+            {
+                roles = context.Roles.ToList();
+            }
             ClearTable(RoleTable);
 
             foreach (var role in roles)
@@ -194,54 +214,63 @@ namespace AplikacjaObslugiBazyDanych.Views
                 RoleId = -1
             });
 
-            context.Roles.Add(new Role()
+            using (var context = new DatabaseContext())
             {
-                RoleName = "Nowa grupa"
-            });
+                context.Roles.Add(new Role()
+                {
+                    RoleName = "Nowa grupa"
+                });
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
             UpdateRolesTable();
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            var count = RoleTable.Rows.Count;
-            for (var i = 0; i < count; i++)
+            using (var context = new DatabaseContext())
             {
-                var roleName = RoleTable.Rows[i].Cells[0].Value.ToString();
-                var roleId = (int)RoleTable.Rows[i].Cells[1].Value;
-
-                context.Roles.AddOrUpdate(new Role()
+                var count = RoleTable.Rows.Count;
+                for (var i = 0; i < count; i++)
                 {
-                    RoleId = roleId,
-                    RoleName = roleName
-                });
+                    var roleName = RoleTable.Rows[i].Cells[0].Value.ToString();
+                    var roleId = (int)RoleTable.Rows[i].Cells[1].Value;
+
+                    context.Roles.AddOrUpdate(new Role()
+                    {
+                        RoleId = roleId,
+                        RoleName = roleName
+                    });
+                }
+                context.SaveChanges();
             }
-            context.SaveChanges();
         }
 
         private void RemoveRole_Click(object sender, EventArgs e)
         {
-            var roleRowId = RoleTable.SelectedCells[0].RowIndex;
-            var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
-
-            var employees = context.Employees.Where(a => a.RoleId == roleId).ToList();
-
-            if (employees.Count == 0)
+            using (var context = new DatabaseContext())
             {
+                var roleRowId = RoleTable.SelectedCells[0].RowIndex;
+                var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
 
-                var role = context.Roles.Single(a => a.RoleId == roleId);
-                context.Roles.Remove(role);
+                var employees = context.Employees.Where(a => a.RoleId == roleId).ToList();
 
-                var roleClaims = context.RolesClaims.Where(a => a.RoleId == roleId).ToList();
-                context.RolesClaims.RemoveRange(roleClaims);
+                if (employees.Count == 0)
+                {
 
-                context.SaveChanges();
-                UpdateWindow();
-            }
-            else
-            {
-                MessageBox.Show("Nie można usunąć grupy do której są przypisani użytkownicy!", "Błąd");
+                    var role = context.Roles.Single(a => a.RoleId == roleId);
+                    context.Roles.Remove(role);
+
+                    var roleClaims = context.RolesClaims.Where(a => a.RoleId == roleId).ToList();
+                    context.RolesClaims.RemoveRange(roleClaims);
+
+                    context.SaveChanges();
+                    UpdateWindow();
+                }
+                else
+                {
+                    MessageBox.Show("Nie można usunąć grupy do której są przypisani użytkownicy!", "Błąd");
+                }
             }
         }
 
@@ -264,42 +293,49 @@ namespace AplikacjaObslugiBazyDanych.Views
 
         private void RevokeEmployeeRole_Click(object sender, EventArgs e)
         {
-            var rowIndex = EmployeesTable.SelectedCells[0].RowIndex;
-            var employeeId = (int)EmployeesTable.Rows[rowIndex].Cells[1].Value;
-
-            var employee = context.Employees.FirstOrDefault(a => a.EmployeeId == employeeId);
-            if (employee != null)
+            using (var context = new DatabaseContext())
             {
-                employee.RoleId = null;
-                context.SaveChanges();
+                var rowIndex = EmployeesTable.SelectedCells[0].RowIndex;
+                var employeeId = (int)EmployeesTable.Rows[rowIndex].Cells[1].Value;
 
-                var roleRowId = RoleTable.SelectedCells[0].RowIndex;
-                var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
+                var employee = context.Employees.FirstOrDefault(a => a.EmployeeId == employeeId);
+                if (employee != null)
+                {
+                    employee.RoleId = null;
+                    context.SaveChanges();
 
-                UpdateEmployeesList(roleId);
+                    var roleRowId = RoleTable.SelectedCells[0].RowIndex;
+                    var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
+
+                    UpdateEmployeesList(roleId);
+                }
             }
         }
 
         private void AddEmployeeToRole_Click(object sender, EventArgs e)
         {
-            var selectedToAdd = EmployeesList.SelectedItem;
-
-            if (selectedToAdd != null)
+            using (var context = new DatabaseContext())
             {
-                var employee =
-                    context.Employees.SingleOrDefault(a => (a.FirstName + " " + a.LastName).Equals(selectedToAdd.ToString()));
+                var selectedToAdd = EmployeesList.SelectedItem;
 
-                if (employee != null)
+                if (selectedToAdd != null)
                 {
-                    var roleRowId = RoleTable.SelectedCells[0].RowIndex;
-                    var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
+                    var employee =
+                        context.Employees.SingleOrDefault(a =>
+                            (a.FirstName + " " + a.LastName).Equals(selectedToAdd.ToString()));
 
-                    employee.RoleId = roleId;
+                    if (employee != null)
+                    {
+                        var roleRowId = RoleTable.SelectedCells[0].RowIndex;
+                        var roleId = (int)RoleTable.Rows[roleRowId].Cells[1].Value;
 
-                    context.Employees.AddOrUpdate(employee);
-                    context.SaveChanges();
+                        employee.RoleId = roleId;
 
-                    UpdateEmployeesList(roleId);
+                        context.Employees.AddOrUpdate(employee);
+                        context.SaveChanges();
+
+                        UpdateEmployeesList(roleId);
+                    }
                 }
             }
         }

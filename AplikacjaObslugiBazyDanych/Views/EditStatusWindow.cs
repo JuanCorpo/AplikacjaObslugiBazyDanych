@@ -14,15 +14,15 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class EditStatusWindow : Form
     {
-        private DatabaseContext context = new DatabaseContext();
         private List<Status> statuses;
 
         public EditStatusWindow()
         {
             InitializeComponent();
-
-            statuses = context.Statuses.ToList();
-
+            using (var context = new DatabaseContext())
+            {
+                statuses = context.Statuses.ToList();
+            }
             foreach (var status in statuses)
             {
                 DataTable.RowCount++;
@@ -53,12 +53,14 @@ namespace AplikacjaObslugiBazyDanych.Views
                     // TODO Dodać sprawdzenie czy nie jest powiączany z zamówieniami
                     // TODO !!
                     var id = (int)DataTable.Rows[selected[0].RowIndex].Cells[2].Value;
-
-                    var element = context.Statuses.SingleOrDefault(a =>
-                        a.StatusId == id);
-                    if (element != null)
+                    using (var context = new DatabaseContext())
                     {
-                        context.Statuses.Remove(element);
+                        var element = context.Statuses.SingleOrDefault(a =>
+                            a.StatusId == id);
+                        if (element != null)
+                        {
+                            context.Statuses.Remove(element);
+                        }
                     }
                     DataTable.Rows.RemoveAt(selected[0].RowIndex);
                 }
@@ -78,17 +80,19 @@ namespace AplikacjaObslugiBazyDanych.Views
                     StatusId = (int?)row.Cells[2].Value ?? -1,
                 });
             }
-
-            foreach (var element in newList)
+            using (var context = new DatabaseContext())
             {
-                if (element.StatusId == -1)
-                    context.Statuses.Add(element);
-                else
-                    context.Statuses.AddOrUpdate(element);
+                foreach (var element in newList)
+                {
+                    if (element.StatusId == -1)
+                        context.Statuses.Add(element);
+                    else
+                        context.Statuses.AddOrUpdate(element);
+                }
+
+
+                context.SaveChanges();
             }
-
-
-            context.SaveChanges();
         }
 
         private void SetIndexes()

@@ -14,14 +14,16 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class EditCategoryWindow : Form
     {
-        DatabaseContext context = new DatabaseContext();
         private List<Category> categories;
 
         public EditCategoryWindow()
         {
             InitializeComponent();
 
-            categories = context.Categories.ToList();
+            using (var context = new DatabaseContext())
+            {
+                categories = context.Categories.ToList();
+            }
 
             var parentCategory = DataTable.Columns[2] as DataGridViewComboBoxColumn;
 
@@ -41,9 +43,11 @@ namespace AplikacjaObslugiBazyDanych.Views
             {
                 DataTable.Rows.RemoveAt(0);
             }
-            
 
-            categories = context.Categories.ToList();
+            using (var context = new DatabaseContext())
+            {
+                categories = context.Categories.ToList();
+            }
             var parentCategory = DataTable.Columns[2] as DataGridViewComboBoxColumn;
 
             foreach (var category in categories)
@@ -72,31 +76,35 @@ namespace AplikacjaObslugiBazyDanych.Views
         private void Save_Click(object sender, EventArgs e)
         {
             var count = DataTable.RowCount;
-            for (var i = 0; i < count; i++)
+            using (var context = new DatabaseContext())
             {
-                var parent =
-                    categories.FirstOrDefault(a => a.Name.Equals(DataTable.Rows[i].Cells[2].Value));
-
-                if (parent != null || (DataTable.Rows[i].Cells[2].Value != null && DataTable.Rows[i].Cells[2].Value.ToString() == "brak"))
+                for (var i = 0; i < count; i++)
                 {
-                    var category = new Category()
+                    var parent =
+                        categories.FirstOrDefault(a => a.Name.Equals(DataTable.Rows[i].Cells[2].Value));
+
+                    if (parent != null || (DataTable.Rows[i].Cells[2].Value != null && DataTable.Rows[i].Cells[2].Value.ToString() == "brak"))
                     {
-                        CategoryId = (int) DataTable.Rows[i].Cells[0].Value,
-                        Name = DataTable.Rows[i].Cells[1].Value.ToString(),
-                    };
+                        var category = new Category()
+                        {
+                            CategoryId = (int)DataTable.Rows[i].Cells[0].Value,
+                            Name = DataTable.Rows[i].Cells[1].Value.ToString(),
+                        };
 
 
-                    if (DataTable.Rows[i].Cells[2].Value.ToString() == "brak")
-                    {
-                        category.ParentId = null;
+                        if (DataTable.Rows[i].Cells[2].Value.ToString() == "brak")
+                        {
+                            category.ParentId = null;
+                        }
+                        else
+                        {
+                            category.ParentId = parent.CategoryId;
+                        }
+
+
+                        context.Categories.AddOrUpdate(category);
+                        context.SaveChanges();
                     }
-                    else
-                    {
-                        category.ParentId = parent.CategoryId;
-                    }
-
-                    context.Categories.AddOrUpdate(category);
-                    context.SaveChanges();
                 }
             }
         }
@@ -111,8 +119,11 @@ namespace AplikacjaObslugiBazyDanych.Views
                 ParentId = null,
             };
 
-            context.Categories.Add(newCategory);
-            context.SaveChanges();
+            using (var context = new DatabaseContext())
+            {
+                context.Categories.Add(newCategory);
+                context.SaveChanges();
+            }
 
             DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = newCategory.CategoryId;
             DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = "Nowa kategoria";
@@ -124,22 +135,25 @@ namespace AplikacjaObslugiBazyDanych.Views
             if (selected.Count > 0)
             {
                 var categoryId = (int)DataTable.Rows[selected[0].RowIndex].Cells[0].Value;
-                
-                var category = context.Categories.FirstOrDefault(a => a.CategoryId == categoryId);
-                if (category != null)
+
+                using (var context = new DatabaseContext())
                 {
-                    if (!context.Products.Any(p => p.CategoryId == category.CategoryId))
+                    var category = context.Categories.FirstOrDefault(a => a.CategoryId == categoryId);
+                    if (category != null)
                     {
-                        if (!context.Categories.Any(p => p.ParentId == category.CategoryId))
+                        if (!context.Products.Any(p => p.CategoryId == category.CategoryId))
                         {
-                            context.Categories.Remove(category);
-                            context.SaveChanges();
-                            UpdateTable();
-                            return;
+                            if (!context.Categories.Any(p => p.ParentId == category.CategoryId))
+                            {
+                                context.Categories.Remove(category);
+                                context.SaveChanges();
+                                UpdateTable();
+                                return;
+                            }
                         }
+                        MessageBox.Show(
+                            "Nie można usunąć kategori ponieważ jest powiązana z produktem lub jest kategorią nadrzędną!");
                     }
-                    MessageBox.Show(
-                        "Nie można usunąć kategori ponieważ jest powiązana z produktem lub jest kategorią nadrzędną!");
                 }
             }
         }

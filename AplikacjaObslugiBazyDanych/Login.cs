@@ -9,8 +9,6 @@ namespace AplikacjaObslugiBazyDanych
 {
     public partial class Login : Form
     {
-        private readonly DatabaseContext context = new DatabaseContext();
-
         public Login()
         {
             InitializeComponent();
@@ -18,36 +16,38 @@ namespace AplikacjaObslugiBazyDanych
 
         private void Button_Login_Click(object sender, EventArgs e)
         {
-            var login = TextBox_Login.Text;
-            var password = UserHelper.HashPassword(TextBox_Password.Text);
-            
-            var employee = context.Employees.FirstOrDefault(a => a.UserName == login && a.Password == password);
-
-            if (employee == null)
+            using (var context = new DatabaseContext())
             {
-                Label_Error.Text = LoginFormRes.IncorectData;
-            }
-            else
-            {
-                Label_Error.Text = GlobalRes.Empty;
-                employee.Password = null;
-                UserHelper.Employee = employee;
-                UserHelper.LoggedIn = true;
+                var login = TextBox_Login.Text;
+                var password = UserHelper.HashPassword(TextBox_Password.Text);
 
-                this.Hide();
-                var form2 = new MainWindow();
-                form2.ShowDialog();
-                if (UserHelper.LoggedIn == false)
+                var employee = context.Employees.FirstOrDefault(a => a.UserName == login && a.Password == password);
+
+                if (employee == null)
                 {
-                    this.Show();
+                    Label_Error.Text = LoginFormRes.IncorectData;
                 }
                 else
                 {
-                    this.Close();
-                }
+                    Label_Error.Text = GlobalRes.Empty;
+                    employee.Password = null;
+                    UserHelper.Employee = employee;
+                    UserHelper.LoggedIn = true;
 
+                    this.Hide();
+                    var form2 = new MainWindow();
+                    form2.ShowDialog();
+                    if (UserHelper.LoggedIn == false)
+                    {
+                        this.Show();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+
+                }
             }
-            
         }
     }
 }

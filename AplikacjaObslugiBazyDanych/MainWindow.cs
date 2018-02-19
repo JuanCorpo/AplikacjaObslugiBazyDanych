@@ -13,14 +13,13 @@ namespace AplikacjaObslugiBazyDanych
 {
     public partial class MainWindow : Form
     {
-        private DatabaseContext context = new DatabaseContext();
         private List<Button> buttons;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            RoleName.Text = UserHelper.Employee.Role.RoleName;
+            RoleName.Text = UserHelper.Employee.Role?.RoleName?? "brak grupy";
             UserName.Text = UserHelper.Employee.GetFullName();
 
             buttons = new List<Button>()
@@ -252,9 +251,8 @@ namespace AplikacjaObslugiBazyDanych
         {
             UserHelper.Employee = null;
             UserHelper.LoggedIn = false;
-            UserHelper.Claims = null;
+            UserHelper.Claims.Clear();
             this.Close();
-
         }
     }
 }

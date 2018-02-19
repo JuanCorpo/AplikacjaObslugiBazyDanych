@@ -15,14 +15,16 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class EditParametersWindow : Form
     {
-        private DatabaseContext context = new DatabaseContext();
         private List<ParameterType> parameterTypes;
 
         public EditParametersWindow()
         {
             InitializeComponent();
 
-            parameterTypes = context.ParametersTypes.ToList();
+            using (var context = new DatabaseContext())
+            {
+                parameterTypes = context.ParametersTypes.ToList();
+            }
 
             foreach (var parameterType in parameterTypes)
             {
@@ -54,14 +56,17 @@ namespace AplikacjaObslugiBazyDanych.Views
                     // TODO !!
                     // TODO Dodać sprawdzenie czy nie jest powiączany z produktami
                     // TODO !!
-                    var id = (int)DataTable.Rows[selected[0].RowIndex].Cells[3].Value;
-                    var element = context.ParametersTypes.SingleOrDefault(a =>
-                        a.ParameterId == id);
-                    if (element != null)
+                    using (var context = new DatabaseContext())
                     {
-                        context.ParametersTypes.Remove(element);
+                        var id = (int) DataTable.Rows[selected[0].RowIndex].Cells[3].Value;
+                        var element = context.ParametersTypes.SingleOrDefault(a =>
+                            a.ParameterId == id);
+                        if (element != null)
+                        {
+                            context.ParametersTypes.Remove(element);
+                        }
+                        DataTable.Rows.RemoveAt(selected[0].RowIndex);
                     }
-                    DataTable.Rows.RemoveAt(selected[0].RowIndex);
                 }
             }
             SetIndexes();
@@ -81,16 +86,19 @@ namespace AplikacjaObslugiBazyDanych.Views
                 });
             }
 
-            foreach (var element in newList)
+            using (var context = new DatabaseContext())
             {
-                if (element.ParameterId == -1)
-                    context.ParametersTypes.Add(element);
-                else
-                    context.ParametersTypes.AddOrUpdate(element);
+                foreach (var element in newList)
+                {
+                    if (element.ParameterId == -1)
+                        context.ParametersTypes.Add(element);
+                    else
+                        context.ParametersTypes.AddOrUpdate(element);
+                }
+
+
+                context.SaveChanges();
             }
-
-
-            context.SaveChanges();
         }
 
         private void SetIndexes()
