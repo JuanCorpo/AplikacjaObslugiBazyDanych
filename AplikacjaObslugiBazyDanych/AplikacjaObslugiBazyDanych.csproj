@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Code\Enums\Claims.cs" />
     <Compile Include="Code\Helpers\UserHelper.cs" />
+    <Compile Include="CustomClasses\CustomComboBox.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,7 +396,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
-    <Folder Include="CustomClasses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
