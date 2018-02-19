@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.DataTable = new System.Windows.Forms.DataGridView();
+            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.AddCategory = new System.Windows.Forms.Button();
             this.RemoveCategory = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,25 @@
             this.DataTable.RowHeadersVisible = false;
             this.DataTable.Size = new System.Drawing.Size(637, 537);
             this.DataTable.TabIndex = 0;
+            // 
+            // CategoryId
+            // 
+            this.CategoryId.HeaderText = "Numer kategorii";
+            this.CategoryId.Name = "CategoryId";
+            this.CategoryId.ReadOnly = true;
+            this.CategoryId.Width = 200;
+            // 
+            // CategoryNam
+            // 
+            this.CategoryNam.HeaderText = "Nazwa kategorii";
+            this.CategoryNam.Name = "CategoryNam";
+            this.CategoryNam.Width = 200;
+            // 
+            // ParentCategory
+            // 
+            this.ParentCategory.HeaderText = "Kategoria nadrzędna";
+            this.ParentCategory.Name = "ParentCategory";
+            this.ParentCategory.Width = 200;
             // 
             // AddCategory
             // 
@@ -72,6 +91,7 @@
             this.RemoveCategory.TabIndex = 2;
             this.RemoveCategory.Text = "Usuń kategorie";
             this.RemoveCategory.UseVisualStyleBackColor = true;
+            this.RemoveCategory.Click += new System.EventHandler(this.RemoveCategory_Click);
             // 
             // Save
             // 
@@ -94,25 +114,6 @@
             this.Exit.Text = "Zamknij";
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // CategoryId
-            // 
-            this.CategoryId.HeaderText = "Numer kategorii";
-            this.CategoryId.Name = "CategoryId";
-            this.CategoryId.ReadOnly = true;
-            this.CategoryId.Width = 200;
-            // 
-            // CategoryNam
-            // 
-            this.CategoryNam.HeaderText = "Nazwa kategorii";
-            this.CategoryNam.Name = "CategoryNam";
-            this.CategoryNam.Width = 200;
-            // 
-            // ParentCategory
-            // 
-            this.ParentCategory.HeaderText = "Kategoria nadrzędna";
-            this.ParentCategory.Name = "ParentCategory";
-            this.ParentCategory.Width = 200;
             // 
             // EditCategoryWindow
             // 

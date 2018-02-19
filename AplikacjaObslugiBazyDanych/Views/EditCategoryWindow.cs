@@ -31,6 +31,21 @@ namespace AplikacjaObslugiBazyDanych.Views
                 parentCategory.Items.Add(category.Name);
             }
 
+            UpdateTable();
+        }
+
+        private void UpdateTable()
+        {
+            var count = DataTable.RowCount;
+            for (var i = 0; i < count; i++)
+            {
+                DataTable.Rows.RemoveAt(0);
+            }
+            
+
+            categories = context.Categories.ToList();
+            var parentCategory = DataTable.Columns[2] as DataGridViewComboBoxColumn;
+
             foreach (var category in categories)
             {
                 DataTable.RowCount++;
@@ -101,6 +116,32 @@ namespace AplikacjaObslugiBazyDanych.Views
 
             DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = newCategory.CategoryId;
             DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = "Nowa kategoria";
+        }
+
+        private void RemoveCategory_Click(object sender, EventArgs e)
+        {
+            var selected = DataTable.SelectedCells;
+            if (selected.Count > 0)
+            {
+                var categoryId = (int)DataTable.Rows[selected[0].RowIndex].Cells[0].Value;
+                
+                var category = context.Categories.FirstOrDefault(a => a.CategoryId == categoryId);
+                if (category != null)
+                {
+                    if (!context.Products.Any(p => p.CategoryId == category.CategoryId))
+                    {
+                        if (!context.Categories.Any(p => p.ParentId == category.CategoryId))
+                        {
+                            context.Categories.Remove(category);
+                            context.SaveChanges();
+                            UpdateTable();
+                            return;
+                        }
+                    }
+                    MessageBox.Show(
+                        "Nie można usunąć kategori ponieważ jest powiązana z produktem lub jest kategorią nadrzędną!");
+                }
+            }
         }
     }
 }
