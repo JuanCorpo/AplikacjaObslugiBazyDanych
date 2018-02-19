@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AplikacjaObslugiBazyDanych.Models
 {
@@ -12,7 +13,7 @@ namespace AplikacjaObslugiBazyDanych.Models
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
-        public int? ParameterId { get; set; }
+        public int ParameterId { get; set; }
         [ForeignKey("ParameterId")]
         public virtual ParameterType ParameterType { get; set; }
 
