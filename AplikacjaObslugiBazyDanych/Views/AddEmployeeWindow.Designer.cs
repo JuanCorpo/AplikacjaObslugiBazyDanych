@@ -45,6 +45,7 @@
             this.Add = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Generate = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Login
@@ -191,11 +192,20 @@
             this.Generate.UseVisualStyleBackColor = true;
             this.Generate.Click += new System.EventHandler(this.Generate_Click);
             // 
+            // Id
+            // 
+            this.Id.AutoSize = true;
+            this.Id.Location = new System.Drawing.Point(237, 9);
+            this.Id.Name = "Id";
+            this.Id.Size = new System.Drawing.Size(0, 13);
+            this.Id.TabIndex = 17;
+            // 
             // AddEmployeeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 231);
+            this.Controls.Add(this.Id);
             this.Controls.Add(this.Generate);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Add);
@@ -243,5 +253,6 @@
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Generate;
+        private System.Windows.Forms.Label Id;
     }
 }

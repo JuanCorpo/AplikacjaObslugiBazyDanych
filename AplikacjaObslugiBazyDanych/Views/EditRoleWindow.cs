@@ -129,7 +129,6 @@ namespace AplikacjaObslugiBazyDanych.Views
             {
                 claims = context.RolesClaims.Where(a => a.RoleId == roleId).ToList();
 
-
                 foreach (var claim in claims)
                 {
                     RoleClaims.RowCount++;

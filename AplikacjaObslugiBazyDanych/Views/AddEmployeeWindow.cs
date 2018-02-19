@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace AplikacjaObslugiBazyDanych.Views
     {
         private List<Role> roleList;
 
-        public AddEmployeeWindow()
+        public AddEmployeeWindow(Employee employee = null)
         {
             using (var context = new DatabaseContext())
             {
@@ -31,6 +32,20 @@ namespace AplikacjaObslugiBazyDanych.Views
                     Roles.Items.Add(role.RoleName);
                 }
                 Roles.SelectedIndex = 0;
+
+                Id.Text = null;
+
+                if (employee != null)
+                {
+                    Id.Text = employee.EmployeeId.ToString();
+                    Firstname.Text = employee.FirstName;
+                    Surname.Text = employee.LastName;
+                    Login.Text = employee.UserName;
+                    Password.Text = employee.Password;
+                    Phone.Text = employee.PhoneNumber;
+                    Email.Text = employee.Email;
+                    Roles.SelectedItem = employee.Role==null?"brak":employee.Role.RoleName;
+                }
             }
         }
 
@@ -50,23 +65,27 @@ namespace AplikacjaObslugiBazyDanych.Views
                 var phone = Phone.Text;
                 var email = Email.Text;
 
-                if (!IsValidEmail(email))
+                if (Id?.Text == null)
                 {
-                    MessageBox.Show("Podany adres email jest nieporawny!");
-                    return;
+                    if (!IsValidEmail(email))
+                    {
+                        MessageBox.Show("Podany adres email jest nieporawny!");
+                        return;
+                    }
+
+                    if (context.Employees.Any(a => a.UserName.Equals(login)) ||
+                        context.Employees.Any(a => a.Email.Equals(email)))
+                    {
+                        MessageBox.Show("Ten login lub email jest zajęty");
+                        return;
+                    }
+
+                    if (IsNullOrEmpty(name, lastname, login, password, phone, email, Password.Text))
+                    {
+                        MessageBox.Show("Prosze wypełnic wszystkie pola!");
+                    }
                 }
 
-                if (context.Employees.Any(a => a.UserName.Equals(login)) || context.Employees.Any(a => a.Email.Equals(email)))
-                {
-                    MessageBox.Show("Ten login lub email jest zajęty");
-                    return;
-                }
-
-                if (IsNullOrEmpty(name, lastname, login, password, phone, email, Password.Text))
-                {
-                    MessageBox.Show("Prosze wypełnic wszystkie pola!");
-                }
-                
                 var selectedRole = Roles.SelectedItem.ToString();
                 var role = roleList.FirstOrDefault(a => a.RoleName.Equals(Roles.SelectedItem.ToString()));
 
@@ -80,6 +99,11 @@ namespace AplikacjaObslugiBazyDanych.Views
                     UserName = login
                 };
 
+                if (Id?.Text != null)
+                {
+                    employee.EmployeeId = int.Parse(Id.Text);
+                }
+
                 if (selectedRole == "brak" || role == null)
                 {
                     employee.RoleId = null;
@@ -90,7 +114,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                 }
 
 
-                context.Employees.Add(employee);
+                context.Employees.AddOrUpdate(employee);
                 context.SaveChanges();
 
                 // TODO !!
