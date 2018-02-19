@@ -61,6 +61,7 @@ namespace AplikacjaObslugiBazyDanych
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Logout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,6 +82,7 @@ namespace AplikacjaObslugiBazyDanych
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.Logout);
             this.panel1.Controls.Add(this.DateTime);
             this.panel1.Controls.Add(this.UserName);
             this.panel1.Controls.Add(this.label2);
@@ -403,6 +405,16 @@ namespace AplikacjaObslugiBazyDanych
             this.label3.TabIndex = 0;
             this.label3.Text = "Aplikacja obsługi sklepu ";
             // 
+            // Logout
+            // 
+            this.Logout.Location = new System.Drawing.Point(307, -2);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(75, 24);
+            this.Logout.TabIndex = 5;
+            this.Logout.Text = "Wyloguj";
+            this.Logout.UseVisualStyleBackColor = true;
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,5 +472,6 @@ namespace AplikacjaObslugiBazyDanych
         private Button AddOrder;
         private Button AddClient;
         private Button AddProduct;
+        private Button Logout;
     }
 }

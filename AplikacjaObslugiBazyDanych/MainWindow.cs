@@ -247,5 +247,14 @@ namespace AplikacjaObslugiBazyDanych
             ValidateRights();
 
         }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            UserHelper.Employee = null;
+            UserHelper.LoggedIn = false;
+            UserHelper.Claims = null;
+            this.Close();
+
+        }
     }
 }

@@ -125,6 +125,10 @@
             this.Controls.Add(this.RemoveCategory);
             this.Controls.Add(this.AddCategory);
             this.Controls.Add(this.DataTable);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "EditCategoryWindow";
             this.Text = "EditCategoryWindow";
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).EndInit();

@@ -36,8 +36,16 @@ namespace AplikacjaObslugiBazyDanych
 
                 this.Hide();
                 var form2 = new MainWindow();
-                form2.Closed += (s, args) => this.Close();
-                form2.Show();
+                form2.ShowDialog();
+                if (UserHelper.LoggedIn == false)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Close();
+                }
+
             }
             
         }

@@ -53,7 +53,7 @@
             this.panel1.Controls.Add(this.DataTable);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 556);
+            this.panel1.Size = new System.Drawing.Size(551, 537);
             this.panel1.TabIndex = 0;
             // 
             // DataTable
@@ -71,7 +71,7 @@
             this.ParameterId});
             this.DataTable.Location = new System.Drawing.Point(3, 3);
             this.DataTable.Name = "DataTable";
-            this.DataTable.Size = new System.Drawing.Size(545, 550);
+            this.DataTable.Size = new System.Drawing.Size(545, 531);
             this.DataTable.TabIndex = 0;
             // 
             // Index
@@ -113,14 +113,14 @@
             this.panel2.Controls.Add(this.AddNewRow);
             this.panel2.Location = new System.Drawing.Point(569, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 554);
+            this.panel2.Size = new System.Drawing.Size(200, 535);
             this.panel2.TabIndex = 1;
             // 
             // Exit
             // 
             this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Exit.Location = new System.Drawing.Point(3, 501);
+            this.Exit.Location = new System.Drawing.Point(3, 482);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(194, 50);
             this.Exit.TabIndex = 3;
@@ -132,7 +132,7 @@
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(3, 415);
+            this.Save.Location = new System.Drawing.Point(3, 396);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(194, 50);
             this.Save.TabIndex = 2;
@@ -168,9 +168,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 580);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "EditParametersWindow";
             this.Text = "EditParametersWindow";

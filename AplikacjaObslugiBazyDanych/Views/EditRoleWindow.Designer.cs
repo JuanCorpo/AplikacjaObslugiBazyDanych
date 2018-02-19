@@ -327,6 +327,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RoleClaims);
             this.Controls.Add(this.RoleTable);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "EditRoleWindow";
             this.Text = "EditRoleWindow";
