@@ -123,6 +123,10 @@
     <Compile Include="Migrations\201802181843517_addedNullabeEmployeeId.Designer.cs">
       <DependentUpon>201802181843517_addedNullabeEmployeeId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802192041078_changedParameterKey.cs" />
+    <Compile Include="Migrations\201802192041078_changedParameterKey.Designer.cs">
+      <DependentUpon>201802192041078_changedParameterKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -306,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802181843517_addedNullabeEmployeeId.resx">
       <DependentUpon>201802181843517_addedNullabeEmployeeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802192041078_changedParameterKey.resx">
+      <DependentUpon>201802192041078_changedParameterKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

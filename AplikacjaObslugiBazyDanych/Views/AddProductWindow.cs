@@ -64,24 +64,17 @@ namespace AplikacjaObslugiBazyDanych.Views
                         foreach (DataGridViewRow item in ProductParametersTable.Rows)
                         {
                             var Parameter = Parameters.FirstOrDefault(a => a.ParameterName.Equals(item.Cells[1].Value.ToString()));
-                            //ParametersModel.Add(new Parameter()
-                            //{
-                            //    ProductId = ProductModel.ProductId,
-                            //    CategoryId = Category.CategoryId,
-                            //    ParameterId = Parameter.ParameterId,
-                            //    Value = item.Cells[2].Value.ToString()
-                            //});
+                            
                             context.Parameters.Add(new Parameter()
                             {
                                 ProductId = ProductModel.ProductId,
                                 CategoryId = Category.CategoryId,
-                                ParameterId = Parameter.ParameterId,
+                                ParameterTypeId = Parameter.ParameterId,
                                 Value = item.Cells[2].Value.ToString()
                             });
                         }
-                        //    context.Parameters.AddRange(ParametersModel);
 
-                        context.SaveChanges(); //TODO nie działa
+                        context.SaveChanges(); // TODO nie działa 
                         this.Close();
                     }
                 }

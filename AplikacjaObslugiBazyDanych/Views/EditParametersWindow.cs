@@ -59,8 +59,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     using (var context = new DatabaseContext())
                     {
                         var id = (int) DataTable.Rows[selected[0].RowIndex].Cells[3].Value;
-                        var element = context.ParametersTypes.SingleOrDefault(a =>
-                            a.ParameterId == id);
+                        var element = context.ParametersTypes.SingleOrDefault(a =>a.ParameterId == id);
                         if (element != null)
                         {
                             context.ParametersTypes.Remove(element);
