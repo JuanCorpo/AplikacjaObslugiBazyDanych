@@ -7,7 +7,6 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class AddProductWindow : Form
     {
-        DatabaseContext context = new DatabaseContext();
         List<Category> Categories;
         List<Employee> Employees;
         List<ParameterType> Parameters;
@@ -15,9 +14,12 @@ namespace AplikacjaObslugiBazyDanych.Views
         public AddProductWindow(Product product = null)
         {
             InitializeComponent();
-            Categories = context.Categories.ToList();
-            Employees = context.Employees.ToList();
-            Parameters = context.ParametersTypes.ToList();
+            using (var context = new DatabaseContext())
+            {
+                Categories = context.Categories.ToList();
+                Employees = context.Employees.ToList();
+                Parameters = context.ParametersTypes.ToList();
+            }
             foreach (var item in Categories)
             {
                 ProductCategory.Items.Add(item.Name);
@@ -44,40 +46,44 @@ namespace AplikacjaObslugiBazyDanych.Views
                 var SelectedEmployee = ProductEmployee.SelectedItem;
                 if (SelectedCategory != null && SelectedEmployee != null)
                 {
-                    var Category = context.Categories.SingleOrDefault(c => c.Name.Equals(SelectedCategory.ToString()));
-                    var Employee = context.Employees.SingleOrDefault(em => (em.FirstName + " " + em.LastName).Equals(SelectedEmployee.ToString()));
-                    ProductModel.CategoryId = Category.CategoryId;
-                    ProductModel.Name = ProductName.ToString();
-                    ProductModel.Name = ProductName.Text.ToString();
-                    ProductModel.Price = PriceBuff;
-                    ProductModel.NumberOfBought = 0;
-                    ProductModel.StockStatus = int.Parse(ProductStockStatus.Value.ToString());
-                    ProductModel.EmployeeId = Employee.EmployeeId;
-
-                    context.Products.Add(ProductModel);
-                    context.SaveChanges();
-                    
-                    foreach (DataGridViewRow item in ProductParametersTable.Rows)
+                    using (var context = new DatabaseContext())
                     {
-                        var Parameter = Parameters.FirstOrDefault(a => a.ParameterName.Equals(item.Cells[1].Value.ToString()));
-                        //ParametersModel.Add(new Parameter()
-                        //{
-                        //    ProductId = ProductModel.ProductId,
-                        //    CategoryId = Category.CategoryId,
-                        //    ParameterId = Parameter.ParameterId,
-                        //    Value = item.Cells[2].Value.ToString()
-                        //});
-                        context.Parameters.Add(new Parameter()
-                        {
-                            ProductId = ProductModel.ProductId,
-                            CategoryId = Category.CategoryId,
-                            ParameterId = Parameter.ParameterId,
-                            Value = item.Cells[2].Value.ToString()
-                        });
-                    }
-                //    context.Parameters.AddRange(ParametersModel);
+                        var Category = context.Categories.SingleOrDefault(c => c.Name.Equals(SelectedCategory.ToString()));
+                        var Employee = context.Employees.SingleOrDefault(em => (em.FirstName + " " + em.LastName).Equals(SelectedEmployee.ToString()));
+                        ProductModel.CategoryId = Category.CategoryId;
+                        ProductModel.Name = ProductName.ToString();
+                        ProductModel.Name = ProductName.Text.ToString();
+                        ProductModel.Price = PriceBuff;
+                        ProductModel.NumberOfBought = 0;
+                        ProductModel.StockStatus = int.Parse(ProductStockStatus.Value.ToString());
+                        ProductModel.EmployeeId = Employee.EmployeeId;
 
-                    context.SaveChanges(); //TODO nie działa
+                        context.Products.Add(ProductModel);
+                        context.SaveChanges();
+
+                        foreach (DataGridViewRow item in ProductParametersTable.Rows)
+                        {
+                            var Parameter = Parameters.FirstOrDefault(a => a.ParameterName.Equals(item.Cells[1].Value.ToString()));
+                            //ParametersModel.Add(new Parameter()
+                            //{
+                            //    ProductId = ProductModel.ProductId,
+                            //    CategoryId = Category.CategoryId,
+                            //    ParameterId = Parameter.ParameterId,
+                            //    Value = item.Cells[2].Value.ToString()
+                            //});
+                            context.Parameters.Add(new Parameter()
+                            {
+                                ProductId = ProductModel.ProductId,
+                                CategoryId = Category.CategoryId,
+                                ParameterId = Parameter.ParameterId,
+                                Value = item.Cells[2].Value.ToString()
+                            });
+                        }
+                        //    context.Parameters.AddRange(ParametersModel);
+
+                        context.SaveChanges(); //TODO nie działa
+                        this.Close();
+                    }
                 }
                 else MessageBox.Show("Wybierz kategorię i opiekuna produktu!");
             }

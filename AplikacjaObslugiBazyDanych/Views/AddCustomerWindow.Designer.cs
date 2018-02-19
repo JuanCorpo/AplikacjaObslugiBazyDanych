@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CustomerCancelButton = new System.Windows.Forms.Button();
+            this.CustomerButtonOk = new System.Windows.Forms.Button();
+            this.CustomerEmail = new System.Windows.Forms.TextBox();
+            this.CustomerPhoneNumber = new System.Windows.Forms.TextBox();
+            this.CustomerCountry = new System.Windows.Forms.TextBox();
+            this.CustomerCity = new System.Windows.Forms.TextBox();
+            this.CustomerAddress = new System.Windows.Forms.TextBox();
+            this.CustomerLastName = new System.Windows.Forms.TextBox();
+            this.CustomerFirstName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,72 +46,74 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button2
+            // CustomerCancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(140, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Anuluj";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CustomerCancelButton.Location = new System.Drawing.Point(140, 202);
+            this.CustomerCancelButton.Name = "CustomerCancelButton";
+            this.CustomerCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CustomerCancelButton.TabIndex = 31;
+            this.CustomerCancelButton.Text = "Anuluj";
+            this.CustomerCancelButton.UseVisualStyleBackColor = true;
+            this.CustomerCancelButton.Click += new System.EventHandler(this.CustomerCancelButton_Click);
             // 
-            // button1
+            // CustomerButtonOk
             // 
-            this.button1.Location = new System.Drawing.Point(36, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CustomerButtonOk.Location = new System.Drawing.Point(36, 202);
+            this.CustomerButtonOk.Name = "CustomerButtonOk";
+            this.CustomerButtonOk.Size = new System.Drawing.Size(75, 23);
+            this.CustomerButtonOk.TabIndex = 30;
+            this.CustomerButtonOk.Text = "Ok";
+            this.CustomerButtonOk.UseVisualStyleBackColor = true;
+            this.CustomerButtonOk.Click += new System.EventHandler(this.CustomerButtonOk_Click);
             // 
-            // textBox7
+            // CustomerEmail
             // 
-            this.textBox7.Location = new System.Drawing.Point(12, 176);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(144, 20);
-            this.textBox7.TabIndex = 29;
+            this.CustomerEmail.Location = new System.Drawing.Point(12, 176);
+            this.CustomerEmail.Name = "CustomerEmail";
+            this.CustomerEmail.Size = new System.Drawing.Size(144, 20);
+            this.CustomerEmail.TabIndex = 29;
             // 
-            // textBox6
+            // CustomerPhoneNumber
             // 
-            this.textBox6.Location = new System.Drawing.Point(12, 149);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(144, 20);
-            this.textBox6.TabIndex = 28;
+            this.CustomerPhoneNumber.Location = new System.Drawing.Point(12, 149);
+            this.CustomerPhoneNumber.Name = "CustomerPhoneNumber";
+            this.CustomerPhoneNumber.Size = new System.Drawing.Size(144, 20);
+            this.CustomerPhoneNumber.TabIndex = 28;
             // 
-            // textBox5
+            // CustomerCountry
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 122);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(144, 20);
-            this.textBox5.TabIndex = 27;
+            this.CustomerCountry.Location = new System.Drawing.Point(12, 122);
+            this.CustomerCountry.Name = "CustomerCountry";
+            this.CustomerCountry.Size = new System.Drawing.Size(144, 20);
+            this.CustomerCountry.TabIndex = 27;
             // 
-            // textBox4
+            // CustomerCity
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 20);
-            this.textBox4.TabIndex = 26;
+            this.CustomerCity.Location = new System.Drawing.Point(12, 95);
+            this.CustomerCity.Name = "CustomerCity";
+            this.CustomerCity.Size = new System.Drawing.Size(144, 20);
+            this.CustomerCity.TabIndex = 26;
             // 
-            // textBox3
+            // CustomerAddress
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 25;
+            this.CustomerAddress.Location = new System.Drawing.Point(12, 66);
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.Size = new System.Drawing.Size(144, 20);
+            this.CustomerAddress.TabIndex = 25;
             // 
-            // textBox2
+            // CustomerLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 24;
+            this.CustomerLastName.Location = new System.Drawing.Point(12, 39);
+            this.CustomerLastName.Name = "CustomerLastName";
+            this.CustomerLastName.Size = new System.Drawing.Size(144, 20);
+            this.CustomerLastName.TabIndex = 24;
             // 
-            // textBox1
+            // CustomerFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 23;
+            this.CustomerFirstName.Location = new System.Drawing.Point(12, 12);
+            this.CustomerFirstName.Name = "CustomerFirstName";
+            this.CustomerFirstName.Size = new System.Drawing.Size(144, 20);
+            this.CustomerFirstName.TabIndex = 23;
             // 
             // label7
             // 
@@ -181,15 +183,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CustomerCancelButton);
+            this.Controls.Add(this.CustomerButtonOk);
+            this.Controls.Add(this.CustomerEmail);
+            this.Controls.Add(this.CustomerPhoneNumber);
+            this.Controls.Add(this.CustomerCountry);
+            this.Controls.Add(this.CustomerCity);
+            this.Controls.Add(this.CustomerAddress);
+            this.Controls.Add(this.CustomerLastName);
+            this.Controls.Add(this.CustomerFirstName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -206,15 +208,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button CustomerCancelButton;
+        private System.Windows.Forms.Button CustomerButtonOk;
+        private System.Windows.Forms.TextBox CustomerEmail;
+        private System.Windows.Forms.TextBox CustomerPhoneNumber;
+        private System.Windows.Forms.TextBox CustomerCountry;
+        private System.Windows.Forms.TextBox CustomerCity;
+        private System.Windows.Forms.TextBox CustomerAddress;
+        private System.Windows.Forms.TextBox CustomerLastName;
+        private System.Windows.Forms.TextBox CustomerFirstName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
