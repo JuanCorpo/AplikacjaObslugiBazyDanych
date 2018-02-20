@@ -386,6 +386,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\AplikacjaObslugiBazyDanych.Models.Employee.datasource" />
+    <None Include="Properties\DataSources\AplikacjaObslugiBazyDanych.Models.Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

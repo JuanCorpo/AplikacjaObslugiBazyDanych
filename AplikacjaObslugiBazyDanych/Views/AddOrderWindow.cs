@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +20,7 @@ namespace AplikacjaObslugiBazyDanych.Views
         private Order order;
         private List<OrderDetail> orderDetails;
 
-        public AddOrderWindow()
+        public AddOrderWindow(Order loadedOrder = null)
         {
             using (var context = new DatabaseContext())
             {
@@ -42,11 +44,6 @@ namespace AplikacjaObslugiBazyDanych.Views
                     });
                 }
 
-                Status.Items.Add(new CustomComboBox()
-                {
-                    Id = null,
-                    Value = "brak"
-                });
                 foreach (var item in statuses)
                 {
                     Status.Items.Add(new CustomComboBox()
@@ -56,7 +53,34 @@ namespace AplikacjaObslugiBazyDanych.Views
                     });
                 }
                 Status.SelectedIndex = 0;
+
+
+                if (loadedOrder != null)
+                {
+                    order.OrderId = loadedOrder.OrderId;
+
+                    orderDetails = context.OrdersDetails.Include(a => a.Product).Include(a => a.Order).Where(a => a.OrderId == loadedOrder.OrderId).ToList();
+
+                    foreach (var item in Customers.Items)
+                    {
+                        if (item is CustomComboBox element && element.Id == loadedOrder.CustomerId)
+                        {
+                            Customers.SelectedItem = item;
+                            break;
+                        }
+                    }
+                    foreach (var item in Status.Items)
+                    {
+                        if (item is CustomComboBox element && element.Id == loadedOrder.StatusId)
+                        {
+                            Status.SelectedItem = item;
+                            break;
+                        }
+                    }
+
+                }
             }
+            UpdateTable();
         }
 
         private void AddProduct_Click(object sender, EventArgs e)
@@ -110,12 +134,22 @@ namespace AplikacjaObslugiBazyDanych.Views
         {
             if (DataTable.SelectedCells.Count > 0)
             {
-                var rowId = DataTable.SelectedCells[0].RowIndex;
+                using (var context = new DatabaseContext())
+                {
+                    var rowId = DataTable.SelectedCells[0].RowIndex;
 
-                var id = (int)DataTable.Rows[rowId].Cells[0].Value;
+                    var id = (int)DataTable.Rows[rowId].Cells[0].Value;
 
-                orderDetails.RemoveAt(id - 1);
+                    var element = orderDetails.ElementAt(id - 1);
+                    if (element?.ID != null)
+                    {
+                        var toRemove = context.OrdersDetails.FirstOrDefault(a => a.ID == element.ID);
+                        context.OrdersDetails.Remove(toRemove);
+                        context.SaveChanges();
+                    }
 
+                    orderDetails.RemoveAt(id - 1);
+                }
                 UpdateTable();
             }
         }
@@ -127,7 +161,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                 var rowId = DataTable.SelectedCells[0].RowIndex;
                 var id = (int)DataTable.Rows[rowId].Cells[0].Value;
 
-                var window = new SelectOrderProductWindow(orderDetails[id-1]);
+                var window = new SelectOrderProductWindow(orderDetails[id - 1]);
                 window.ShowDialog();
                 if (window.Added)
                 {
@@ -135,13 +169,16 @@ namespace AplikacjaObslugiBazyDanych.Views
                     var numberOf = window.GetCount();
                     var discount = window.GetDiscount();
 
+                    var idO = orderDetails[id - 1].ID;
+
                     orderDetails[id - 1] = new OrderDetail()
                     {
+                        ID = idO,
                         Amount = numberOf,
                         Discount = discount,
                         Price = (int)product.Price,
                         ProductId = product.ProductId,
-                        Product = product
+                        Product = product,
                     };
 
                     UpdateTable();
@@ -151,28 +188,29 @@ namespace AplikacjaObslugiBazyDanych.Views
 
         private void Order_Click(object sender, EventArgs e)
         {
-            if (Customers.SelectedIndex >= 0 && Status.SelectedIndex >= 0)
+            if (Customers.SelectedIndex >= 0 && Status.SelectedIndex >= 0 && orderDetails.Count > 0)
             {
                 using (var context = new DatabaseContext())
                 {
-                    var idC = ((CustomComboBox) Customers.SelectedItem).Id;
+                    var idC = ((CustomComboBox)Customers.SelectedItem).Id;
 
                     if (idC != null)
                         order.CustomerId = idC.Value;
 
-                    var idS = ((CustomComboBox) Status.SelectedItem).Id;
+                    var idS = ((CustomComboBox)Status.SelectedItem).Id;
 
                     if (idS != null)
                         order.StatusId = idS.Value;
 
                     var or = new Order()
                     {
+                        OrderId = order.OrderId,
                         CustomerId = order.CustomerId,
                         EmployeeId = order.EmployeeId,
                         StatusId = order.StatusId
                     };
 
-                    context.Orders.Add(or);
+                    context.Orders.AddOrUpdate(or);
 
                     context.SaveChanges();
 
@@ -183,18 +221,22 @@ namespace AplikacjaObslugiBazyDanych.Views
                         return a;
                     }).ToList();
 
-                    context.OrdersDetails.AddRange(orderDetails);
+                    foreach (var item in orderDetails)
+                    {
+                        context.OrdersDetails.AddOrUpdate(item);
+                    }
 
                     context.SaveChanges();
 
                     // TODO !!
                     // TODO Wysłanie powiadomienia o zamówieniu
                     // TODO !!
+                    this.Close();
                 }
             }
             else
             {
-                MessageBox.Show("Prosze wybrać klienta oraz status");
+                MessageBox.Show("Prosze wybrać klienta oraz status oraz zamówienie musi składać się z przynajmniej jednego produktu!");
             }
         }
     }

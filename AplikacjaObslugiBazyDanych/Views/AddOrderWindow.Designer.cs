@@ -31,12 +31,6 @@
             this.Customers = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DataTable = new System.Windows.Forms.DataGridView();
-            this.AddProduct = new System.Windows.Forms.Button();
-            this.RemoveSelected = new System.Windows.Forms.Button();
-            this.Order = new System.Windows.Forms.Button();
-            this.Edit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.ComboBox();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberOf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +38,12 @@
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddProduct = new System.Windows.Forms.Button();
+            this.RemoveSelected = new System.Windows.Forms.Button();
+            this.Order = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Status = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,64 +83,6 @@
             this.DataTable.RowHeadersVisible = false;
             this.DataTable.Size = new System.Drawing.Size(560, 468);
             this.DataTable.TabIndex = 2;
-            // 
-            // AddProduct
-            // 
-            this.AddProduct.Location = new System.Drawing.Point(12, 52);
-            this.AddProduct.Name = "AddProduct";
-            this.AddProduct.Size = new System.Drawing.Size(104, 23);
-            this.AddProduct.TabIndex = 3;
-            this.AddProduct.Text = "Dodaj produkt";
-            this.AddProduct.UseVisualStyleBackColor = true;
-            this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
-            // 
-            // RemoveSelected
-            // 
-            this.RemoveSelected.Location = new System.Drawing.Point(122, 52);
-            this.RemoveSelected.Name = "RemoveSelected";
-            this.RemoveSelected.Size = new System.Drawing.Size(116, 23);
-            this.RemoveSelected.TabIndex = 4;
-            this.RemoveSelected.Text = "Usuń zaznaczony";
-            this.RemoveSelected.UseVisualStyleBackColor = true;
-            this.RemoveSelected.Click += new System.EventHandler(this.RemoveSelected_Click);
-            // 
-            // Order
-            // 
-            this.Order.Location = new System.Drawing.Point(446, 52);
-            this.Order.Name = "Order";
-            this.Order.Size = new System.Drawing.Size(126, 23);
-            this.Order.TabIndex = 5;
-            this.Order.Text = "Złóż zamówiene";
-            this.Order.UseVisualStyleBackColor = true;
-            this.Order.Click += new System.EventHandler(this.Order_Click);
-            // 
-            // Edit
-            // 
-            this.Edit.Location = new System.Drawing.Point(244, 52);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(115, 23);
-            this.Edit.TabIndex = 6;
-            this.Edit.Text = "Edytuj zaznaczony";
-            this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Click += new System.EventHandler(this.Edit_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Status";
-            // 
-            // Status
-            // 
-            this.Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Status.FormattingEnabled = true;
-            this.Status.Location = new System.Drawing.Point(287, 12);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(161, 21);
-            this.Status.TabIndex = 8;
             // 
             // Index
             // 
@@ -185,6 +127,64 @@
             this.PID.Name = "PID";
             this.PID.ReadOnly = true;
             this.PID.Visible = false;
+            // 
+            // AddProduct
+            // 
+            this.AddProduct.Location = new System.Drawing.Point(12, 52);
+            this.AddProduct.Name = "AddProduct";
+            this.AddProduct.Size = new System.Drawing.Size(104, 23);
+            this.AddProduct.TabIndex = 3;
+            this.AddProduct.Text = "Dodaj produkt";
+            this.AddProduct.UseVisualStyleBackColor = true;
+            this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
+            // 
+            // RemoveSelected
+            // 
+            this.RemoveSelected.Location = new System.Drawing.Point(122, 52);
+            this.RemoveSelected.Name = "RemoveSelected";
+            this.RemoveSelected.Size = new System.Drawing.Size(116, 23);
+            this.RemoveSelected.TabIndex = 4;
+            this.RemoveSelected.Text = "Usuń zaznaczony";
+            this.RemoveSelected.UseVisualStyleBackColor = true;
+            this.RemoveSelected.Click += new System.EventHandler(this.RemoveSelected_Click);
+            // 
+            // Order
+            // 
+            this.Order.Location = new System.Drawing.Point(446, 52);
+            this.Order.Name = "Order";
+            this.Order.Size = new System.Drawing.Size(126, 23);
+            this.Order.TabIndex = 5;
+            this.Order.Text = "Zapisz zamówiene";
+            this.Order.UseVisualStyleBackColor = true;
+            this.Order.Click += new System.EventHandler(this.Order_Click);
+            // 
+            // Edit
+            // 
+            this.Edit.Location = new System.Drawing.Point(244, 52);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(115, 23);
+            this.Edit.TabIndex = 6;
+            this.Edit.Text = "Edytuj zaznaczony";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(244, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Status";
+            // 
+            // Status
+            // 
+            this.Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Status.FormattingEnabled = true;
+            this.Status.Location = new System.Drawing.Point(287, 12);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(161, 21);
+            this.Status.TabIndex = 8;
             // 
             // AddOrderWindow
             // 

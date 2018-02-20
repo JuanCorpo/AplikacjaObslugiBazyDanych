@@ -61,6 +61,12 @@ namespace AplikacjaObslugiBazyDanych.Views
                     Name.Text = orderDetail.Product.Name;
                     Price.Text = orderDetail.Product.Price.ToString();
                     Stock.Text = orderDetail.Product.StockStatus.ToString();
+
+
+                    orderDetail.Product.Employee =
+                        context.Employees.FirstOrDefault(a => a.EmployeeId == orderDetail.Product.EmployeeId);
+
+
                     Employee.Text = orderDetail.Product.Employee.GetFullName();
                 }
             }

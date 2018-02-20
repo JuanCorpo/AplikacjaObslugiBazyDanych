@@ -176,7 +176,7 @@
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 17;
-            this.Add.Text = "Dodaj";
+            this.Add.Text = "Zapisz";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 

@@ -37,5 +37,10 @@ namespace AplikacjaObslugiBazyDanych.Models
         {
             return $"{FirstName} {LastName}";
         }
+
+        public override string ToString()
+        {
+            return GetFullName();
+        }
     }
 }
