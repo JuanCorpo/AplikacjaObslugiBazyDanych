@@ -48,10 +48,8 @@ namespace AplikacjaObslugiBazyDanych
             this.EditStatuses = new System.Windows.Forms.Button();
             this.EditCategories = new System.Windows.Forms.Button();
             this.EditRole = new System.Windows.Forms.Button();
-            this.DeleteOrder = new System.Windows.Forms.Button();
             this.DeleteClient = new System.Windows.Forms.Button();
             this.DeleteProduct = new System.Windows.Forms.Button();
-            this.EditOrder = new System.Windows.Forms.Button();
             this.EditClient = new System.Windows.Forms.Button();
             this.EditProduct = new System.Windows.Forms.Button();
             this.AddEmployee = new System.Windows.Forms.Button();
@@ -61,6 +59,7 @@ namespace AplikacjaObslugiBazyDanych
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.EditRemoveOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -153,15 +152,14 @@ namespace AplikacjaObslugiBazyDanych
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.EditRemoveOrder);
             this.panel2.Controls.Add(this.EditRemoveEmployee);
             this.panel2.Controls.Add(this.EditParametersTypes);
             this.panel2.Controls.Add(this.EditStatuses);
             this.panel2.Controls.Add(this.EditCategories);
             this.panel2.Controls.Add(this.EditRole);
-            this.panel2.Controls.Add(this.DeleteOrder);
             this.panel2.Controls.Add(this.DeleteClient);
             this.panel2.Controls.Add(this.DeleteProduct);
-            this.panel2.Controls.Add(this.EditOrder);
             this.panel2.Controls.Add(this.EditClient);
             this.panel2.Controls.Add(this.EditProduct);
             this.panel2.Controls.Add(this.AddEmployee);
@@ -236,19 +234,6 @@ namespace AplikacjaObslugiBazyDanych
             this.EditRole.UseVisualStyleBackColor = true;
             this.EditRole.Click += new System.EventHandler(this.EditRole_Click);
             // 
-            // DeleteOrder
-            // 
-            this.DeleteOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DeleteOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteOrder.Location = new System.Drawing.Point(388, 235);
-            this.DeleteOrder.Name = "DeleteOrder";
-            this.DeleteOrder.Size = new System.Drawing.Size(187, 110);
-            this.DeleteOrder.TabIndex = 10;
-            this.DeleteOrder.Text = "Usuń zamówienie";
-            this.DeleteOrder.UseVisualStyleBackColor = true;
-            this.DeleteOrder.Click += new System.EventHandler(this.DeleteOrder_Click);
-            // 
             // DeleteClient
             // 
             this.DeleteClient.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -274,19 +259,6 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteProduct.Text = "Usuń produkt";
             this.DeleteProduct.UseVisualStyleBackColor = true;
             this.DeleteProduct.Click += new System.EventHandler(this.DeleteProduct_Click);
-            // 
-            // EditOrder
-            // 
-            this.EditOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.EditOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.EditOrder.Location = new System.Drawing.Point(388, 119);
-            this.EditOrder.Name = "EditOrder";
-            this.EditOrder.Size = new System.Drawing.Size(187, 110);
-            this.EditOrder.TabIndex = 6;
-            this.EditOrder.Text = "Edytuj zamówienie";
-            this.EditOrder.UseVisualStyleBackColor = true;
-            this.EditOrder.Click += new System.EventHandler(this.EditOrder_Click);
             // 
             // EditClient
             // 
@@ -398,6 +370,17 @@ namespace AplikacjaObslugiBazyDanych
             this.label3.TabIndex = 0;
             this.label3.Text = "Aplikacja obsługi sklepu ";
             // 
+            // EditRemoveOrder
+            // 
+            this.EditRemoveOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditRemoveOrder.Location = new System.Drawing.Point(388, 119);
+            this.EditRemoveOrder.Name = "EditRemoveOrder";
+            this.EditRemoveOrder.Size = new System.Drawing.Size(185, 226);
+            this.EditRemoveOrder.TabIndex = 17;
+            this.EditRemoveOrder.Text = "Edytuj / Usuń zamówienie";
+            this.EditRemoveOrder.UseVisualStyleBackColor = true;
+            this.EditRemoveOrder.Click += new System.EventHandler(this.EditRemoveOrder_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,10 +429,8 @@ namespace AplikacjaObslugiBazyDanych
         private Button EditStatuses;
         private Button EditCategories;
         private Button EditRole;
-        private Button DeleteOrder;
         private Button DeleteClient;
         private Button DeleteProduct;
-        private Button EditOrder;
         private Button EditClient;
         private Button EditProduct;
         private Button AddEmployee;
@@ -458,5 +439,6 @@ namespace AplikacjaObslugiBazyDanych
         private Button AddProduct;
         private Button Logout;
         private Button EditRemoveEmployee;
+        private Button EditRemoveOrder;
     }
 }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AplikacjaObslugiBazyDanych.Code.Enums;
+using AplikacjaObslugiBazyDanych.Code.Helpers;
 using AplikacjaObslugiBazyDanych.Models;
 
 namespace AplikacjaObslugiBazyDanych.Views
@@ -21,6 +23,16 @@ namespace AplikacjaObslugiBazyDanych.Views
             InitializeComponent();
             employeesList = new List<Employee>();
             UpdateTable();
+
+            if (!UserHelper.IsInClaim(Claims.EditCategories))
+            {
+                Edit.Enabled = false;
+            }
+            if (!UserHelper.IsInClaim(Claims.EditRoles))
+            {
+                Delete.Enabled = false;
+            }
+
         }
 
         private void UpdateTable()

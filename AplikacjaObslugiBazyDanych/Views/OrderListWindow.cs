@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AplikacjaObslugiBazyDanych.Views
 {
-    public partial class EditOrderWindow : Form
+    public partial class OrderListWindow : Form
     {
-        public EditOrderWindow()
+        public OrderListWindow()
         {
             InitializeComponent();
         }

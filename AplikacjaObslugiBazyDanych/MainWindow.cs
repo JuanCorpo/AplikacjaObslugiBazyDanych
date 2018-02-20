@@ -25,8 +25,8 @@ namespace AplikacjaObslugiBazyDanych
             buttons = new List<Button>()
             {
                 AddProduct,AddClient,AddOrder,AddEmployee,
-                EditOrder,EditClient,EditProduct,
-                DeleteOrder,DeleteClient,DeleteProduct,
+                EditClient,EditProduct,
+                DeleteClient,DeleteProduct,
                 EditParametersTypes,EditStatuses,EditCategories,EditRole
             };
             ValidateRights();
@@ -54,10 +54,6 @@ namespace AplikacjaObslugiBazyDanych
                 AddEmployee.Enabled = false;
             }
             
-            if (!UserHelper.IsInClaim(Claims.EditOrders))
-            {
-                EditOrder.Enabled = false;
-            }
             if (!UserHelper.IsInClaim(Claims.EditCustomers))
             {
                 EditClient.Enabled = false;
@@ -67,10 +63,6 @@ namespace AplikacjaObslugiBazyDanych
                 EditProduct.Enabled = false;
             }
             
-            if (!UserHelper.IsInClaim(Claims.RemoveOrders))
-            {
-                DeleteOrder.Enabled = false;
-            }
             if (!UserHelper.IsInClaim(Claims.RemoveCustomers))
             {
                 DeleteClient.Enabled = false;
@@ -100,6 +92,10 @@ namespace AplikacjaObslugiBazyDanych
             if (!UserHelper.IsInClaim(Claims.EditEmployee) && !UserHelper.IsInClaim(Claims.RemoveEmployee))
             {
                 EditRemoveEmployee.Enabled = false;
+            }
+            if (!UserHelper.IsInClaim(Claims.EditOrders) && !UserHelper.IsInClaim(Claims.RemoveOrders))
+            {
+                EditRemoveOrder.Enabled = false;
             }
         }
 
@@ -179,21 +175,7 @@ namespace AplikacjaObslugiBazyDanych
             window.ShowDialog();
             ValidateRights();
         }
-
-        private void EditOrder_Click(object sender, EventArgs e)
-        {
-            var window = new EditOrderWindow();
-            window.ShowDialog();
-            ValidateRights();
-        }
-
-        private void DeleteOrder_Click(object sender, EventArgs e)
-        {
-            var window = new DeleteOrderWindow();
-            window.ShowDialog();
-            ValidateRights();
-        }
-
+        
         private void AddEmployee_Click(object sender, EventArgs e)
         {
             var window = new AddEmployeeWindow();
@@ -241,6 +223,13 @@ namespace AplikacjaObslugiBazyDanych
         private void EditRemoveEmployee_Click(object sender, EventArgs e)
         {
             var window = new EmployeeListWindow();
+            window.ShowDialog();
+            ValidateRights();
+        }
+
+        private void EditRemoveOrder_Click(object sender, EventArgs e)
+        {
+            var window = new OrderListWindow();
             window.ShowDialog();
             ValidateRights();
         }

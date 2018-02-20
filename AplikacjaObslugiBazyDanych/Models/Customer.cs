@@ -20,5 +20,10 @@ namespace AplikacjaObslugiBazyDanych.Models
         public string PhoneNumber { get; set; }
 
         public string Email { get; set; }
+
+        public string GetFullName()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }
