@@ -195,10 +195,11 @@
             // Id
             // 
             this.Id.AutoSize = true;
-            this.Id.Location = new System.Drawing.Point(237, 9);
+            this.Id.Location = new System.Drawing.Point(272, 9);
             this.Id.Name = "Id";
             this.Id.Size = new System.Drawing.Size(0, 13);
             this.Id.TabIndex = 17;
+            this.Id.Visible = false;
             // 
             // AddEmployeeWindow
             // 

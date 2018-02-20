@@ -99,7 +99,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     UserName = login
                 };
 
-                if (Id?.Text != null)
+                if (!string.IsNullOrEmpty(Id?.Text))
                 {
                     employee.EmployeeId = int.Parse(Id.Text);
                 }
