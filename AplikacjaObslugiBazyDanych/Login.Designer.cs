@@ -46,7 +46,7 @@ namespace AplikacjaObslugiBazyDanych
             this.Button_Login.Location = new System.Drawing.Point(278, 157);
             this.Button_Login.Name = "Button_Login";
             this.Button_Login.Size = new System.Drawing.Size(75, 23);
-            this.Button_Login.TabIndex = 0;
+            this.Button_Login.TabIndex = 3;
             this.Button_Login.Text = global::AplikacjaObslugiBazyDanych.Resources.LoginFormRes.Login;
             this.Button_Login.UseVisualStyleBackColor = true;
             this.Button_Login.Click += new System.EventHandler(this.Button_Login_Click);
@@ -77,7 +77,7 @@ namespace AplikacjaObslugiBazyDanych
             this.TextBox_Login.Location = new System.Drawing.Point(81, 80);
             this.TextBox_Login.Name = "TextBox_Login";
             this.TextBox_Login.Size = new System.Drawing.Size(250, 23);
-            this.TextBox_Login.TabIndex = 3;
+            this.TextBox_Login.TabIndex = 1;
             this.TextBox_Login.Text = "admin";
             // 
             // TextBox_Password
@@ -86,7 +86,7 @@ namespace AplikacjaObslugiBazyDanych
             this.TextBox_Password.Location = new System.Drawing.Point(81, 109);
             this.TextBox_Password.Name = "TextBox_Password";
             this.TextBox_Password.Size = new System.Drawing.Size(249, 23);
-            this.TextBox_Password.TabIndex = 4;
+            this.TextBox_Password.TabIndex = 2;
             this.TextBox_Password.Text = "admin";
             this.TextBox_Password.UseSystemPasswordChar = true;
             // 

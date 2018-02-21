@@ -19,23 +19,12 @@ namespace AplikacjaObslugiBazyDanych.Views
         public EditStatusWindow()
         {
             InitializeComponent();
-            using (var context = new DatabaseContext())
-            {
-                statuses = context.Statuses.ToList();
-            }
-            foreach (var status in statuses)
-            {
-                DataTable.RowCount++;
-                DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = status.StatusName;
-                DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = status.StatusId;
-            }
-            SetIndexes();
+            UpdateTable();
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
             DataTable.RowCount++;
-            SetIndexes();
         }
 
         private void Remove_Click(object sender, EventArgs e)
@@ -60,12 +49,13 @@ namespace AplikacjaObslugiBazyDanych.Views
                         if (element != null)
                         {
                             context.Statuses.Remove(element);
+                            context.SaveChanges();
                         }
                     }
                     DataTable.Rows.RemoveAt(selected[0].RowIndex);
                 }
             }
-            SetIndexes();
+            UpdateTable();
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -74,11 +64,14 @@ namespace AplikacjaObslugiBazyDanych.Views
 
             foreach (DataGridViewRow row in DataTable.Rows)
             {
-                newList.Add(new Status()
+                if (!string.IsNullOrEmpty(row.Cells[1].Value?.ToString()))
                 {
-                    StatusName = row.Cells[1].Value?.ToString(),
-                    StatusId = (int?)row.Cells[2].Value ?? -1,
-                });
+                    newList.Add(new Status()
+                    {
+                        StatusName = row.Cells[1].Value?.ToString(),
+                        StatusId = (int?)row.Cells[2].Value ?? -1,
+                    });
+                }
             }
             using (var context = new DatabaseContext())
             {
@@ -89,17 +82,32 @@ namespace AplikacjaObslugiBazyDanych.Views
                     else
                         context.Statuses.AddOrUpdate(element);
                 }
-
-
                 context.SaveChanges();
             }
+            UpdateTable();
         }
 
-        private void SetIndexes()
+        private void UpdateTable()
         {
-            for (var i = 0; i < DataTable.Rows.Count; i++)
+            var c = DataTable.Rows.Count;
+            for (var i = 0; i < c; i++)
             {
-                DataTable.Rows[i].Cells[0].Value = i + 1;
+                DataTable.Rows.RemoveAt(0);
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                statuses = context.Statuses.ToList();
+            }
+
+            int count = 0;
+            foreach (var status in statuses)
+            {
+                DataTable.RowCount++;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = count+1;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = status.StatusName;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = status.StatusId;
+                count++;
             }
         }
 

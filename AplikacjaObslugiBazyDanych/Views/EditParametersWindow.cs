@@ -21,25 +21,14 @@ namespace AplikacjaObslugiBazyDanych.Views
         {
             InitializeComponent();
 
-            using (var context = new DatabaseContext())
-            {
-                parameterTypes = context.ParametersTypes.ToList();
-            }
-
-            foreach (var parameterType in parameterTypes)
-            {
-                DataTable.RowCount++;
-                DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = parameterType.ParameterName;
-                DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = parameterType.ValueType;
-                DataTable.Rows[DataTable.RowCount - 1].Cells[3].Value = parameterType.ParameterId;
-            }
-            SetIndexes();
+            UpdateTable();
         }
 
         private void AddNewRow_Click(object sender, EventArgs e)
         {
             DataTable.RowCount++;
-            SetIndexes();
+            DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = DataTable.RowCount;
+            DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = "Tekst";
         }
 
         private void RemoveSelectedRow_Click(object sender, EventArgs e)
@@ -58,17 +47,17 @@ namespace AplikacjaObslugiBazyDanych.Views
                     // TODO !!
                     using (var context = new DatabaseContext())
                     {
-                        var id = (int) DataTable.Rows[selected[0].RowIndex].Cells[3].Value;
-                        var element = context.ParametersTypes.SingleOrDefault(a =>a.ParameterId == id);
+                        var id = (int)DataTable.Rows[selected[0].RowIndex].Cells[3].Value;
+                        var element = context.ParametersTypes.SingleOrDefault(a => a.ParameterId == id);
                         if (element != null)
                         {
                             context.ParametersTypes.Remove(element);
+                            context.SaveChanges();
+                            UpdateTable();
                         }
-                        DataTable.Rows.RemoveAt(selected[0].RowIndex);
                     }
                 }
             }
-            SetIndexes();
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -77,12 +66,15 @@ namespace AplikacjaObslugiBazyDanych.Views
 
             foreach (DataGridViewRow row in DataTable.Rows)
             {
-                newList.Add(new ParameterType()
+                if (!string.IsNullOrEmpty(row.Cells[1]?.Value?.ToString()))
                 {
-                    ParameterName = row.Cells[1].Value?.ToString(),
-                    ValueType = row.Cells[2].Value.ToString(),
-                    ParameterId = (int?)row.Cells[3].Value ?? -1,
-                });
+                    newList.Add(new ParameterType()
+                    {
+                        ParameterName = row.Cells[1].Value?.ToString(),
+                        ValueType = row.Cells[2].Value.ToString(),
+                        ParameterId = (int?)row.Cells[3].Value ?? -1,
+                    });
+                }
             }
 
             using (var context = new DatabaseContext())
@@ -97,20 +89,38 @@ namespace AplikacjaObslugiBazyDanych.Views
 
 
                 context.SaveChanges();
-            }
-        }
-
-        private void SetIndexes()
-        {
-            for (var i = 0; i < DataTable.Rows.Count; i++)
-            {
-                DataTable.Rows[i].Cells[0].Value = i + 1;
+                UpdateTable();
             }
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UpdateTable()
+        {
+            var c = DataTable.Rows.Count;
+            for (var i = 0; i < c; i++)
+            {
+                DataTable.Rows.RemoveAt(0);
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                parameterTypes = context.ParametersTypes.ToList();
+            }
+
+            int count = 0;
+            foreach (var parameterType in parameterTypes)
+            {
+                DataTable.RowCount++;
+                DataTable.Rows[count].Cells[0].Value = count + 1;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = parameterType.ParameterName;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = parameterType.ValueType;
+                DataTable.Rows[DataTable.RowCount - 1].Cells[3].Value = parameterType.ParameterId;
+                count++;
+            }
         }
     }
 }

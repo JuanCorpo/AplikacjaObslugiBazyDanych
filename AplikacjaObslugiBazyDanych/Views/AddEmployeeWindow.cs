@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Validation;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AplikacjaObslugiBazyDanych.Code.Helpers;
 using AplikacjaObslugiBazyDanych.Models;
@@ -44,7 +38,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     Password.Text = employee.Password;
                     Phone.Text = employee.PhoneNumber;
                     Email.Text = employee.Email;
-                    Roles.SelectedItem = employee.Role==null?"brak":employee.Role.RoleName;
+                    Roles.SelectedItem = employee.Role == null ? "brak" : employee.Role.RoleName;
                 }
             }
         }
@@ -65,8 +59,9 @@ namespace AplikacjaObslugiBazyDanych.Views
                 var phone = Phone.Text;
                 var email = Email.Text;
 
-                if (Id?.Text == null)
+                if (!IsNullOrEmpty(name, lastname, login, password, phone, email))
                 {
+
                     if (!IsValidEmail(email))
                     {
                         MessageBox.Show("Podany adres email jest nieporawny!");
@@ -84,44 +79,49 @@ namespace AplikacjaObslugiBazyDanych.Views
                     {
                         MessageBox.Show("Prosze wypełnic wszystkie pola!");
                     }
-                }
 
-                var selectedRole = Roles.SelectedItem.ToString();
-                var role = roleList.FirstOrDefault(a => a.RoleName.Equals(Roles.SelectedItem.ToString()));
 
-                var employee = new Employee()
-                {
-                    Email = email,
-                    FirstName = name,
-                    LastName = lastname,
-                    Password = password,
-                    PhoneNumber = phone,
-                    UserName = login
-                };
+                    var selectedRole = Roles.SelectedItem.ToString();
+                    var role = roleList.FirstOrDefault(a => a.RoleName.Equals(Roles.SelectedItem.ToString()));
 
-                if (!string.IsNullOrEmpty(Id?.Text))
-                {
-                    employee.EmployeeId = int.Parse(Id.Text);
-                }
+                    var employee = new Employee()
+                    {
+                        Email = email,
+                        FirstName = name,
+                        LastName = lastname,
+                        Password = password,
+                        PhoneNumber = phone,
+                        UserName = login
+                    };
 
-                if (selectedRole == "brak" || role == null)
-                {
-                    employee.RoleId = null;
+                    if (!string.IsNullOrEmpty(Id?.Text))
+                    {
+                        employee.EmployeeId = int.Parse(Id.Text);
+                    }
+
+                    if (selectedRole == "brak" || role == null)
+                    {
+                        employee.RoleId = null;
+                    }
+                    else
+                    {
+                        employee.RoleId = role.RoleId;
+                    }
+
+
+                    context.Employees.AddOrUpdate(employee);
+                    context.SaveChanges();
+
+                    // TODO !!
+                    // TODO Wysłanie wiadomości z danymi logowania
+                    // TODO !!
+
+                    this.Close();
                 }
                 else
                 {
-                    employee.RoleId = role.RoleId;
+                    MessageBox.Show("Proszę wypełnić poprawnie pola");
                 }
-
-
-                context.Employees.AddOrUpdate(employee);
-                context.SaveChanges();
-
-                // TODO !!
-                // TODO Wysłanie wiadomości z danymi logowania
-                // TODO !!
-                
-                this.Close();
             }
         }
 

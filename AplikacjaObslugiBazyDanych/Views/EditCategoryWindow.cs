@@ -127,6 +127,7 @@ namespace AplikacjaObslugiBazyDanych.Views
 
             DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = newCategory.CategoryId;
             DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = "Nowa kategoria";
+            DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = "brak";
         }
 
         private void RemoveCategory_Click(object sender, EventArgs e)

@@ -30,15 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.DataTable = new System.Windows.Forms.DataGridView();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParameterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParameterType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ParameterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.RemoveSelectedRow = new System.Windows.Forms.Button();
             this.AddNewRow = new System.Windows.Forms.Button();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParameterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParameterType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ParameterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.panel2.SuspendLayout();
@@ -71,37 +71,9 @@
             this.ParameterId});
             this.DataTable.Location = new System.Drawing.Point(3, 3);
             this.DataTable.Name = "DataTable";
+            this.DataTable.RowHeadersVisible = false;
             this.DataTable.Size = new System.Drawing.Size(545, 531);
             this.DataTable.TabIndex = 0;
-            // 
-            // Index
-            // 
-            this.Index.HeaderText = "Lp";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Width = 50;
-            // 
-            // ParameterName
-            // 
-            this.ParameterName.HeaderText = "Nazwa parametru";
-            this.ParameterName.Name = "ParameterName";
-            this.ParameterName.Width = 225;
-            // 
-            // ParameterType
-            // 
-            this.ParameterType.HeaderText = "Typ parametru";
-            this.ParameterType.Items.AddRange(new object[] {
-            "Tekst",
-            "123",
-            "Tak/Nie"});
-            this.ParameterType.Name = "ParameterType";
-            this.ParameterType.Width = 225;
-            // 
-            // ParameterId
-            // 
-            this.ParameterId.HeaderText = "#";
-            this.ParameterId.Name = "ParameterId";
-            this.ParameterId.Visible = false;
             // 
             // panel2
             // 
@@ -163,6 +135,35 @@
             this.AddNewRow.Text = "Dodaj nowy typ parametru";
             this.AddNewRow.UseVisualStyleBackColor = true;
             this.AddNewRow.Click += new System.EventHandler(this.AddNewRow_Click);
+            // 
+            // Index
+            // 
+            this.Index.HeaderText = "Lp";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Width = 50;
+            // 
+            // ParameterName
+            // 
+            this.ParameterName.HeaderText = "Nazwa parametru";
+            this.ParameterName.Name = "ParameterName";
+            this.ParameterName.Width = 225;
+            // 
+            // ParameterType
+            // 
+            this.ParameterType.HeaderText = "Typ parametru";
+            this.ParameterType.Items.AddRange(new object[] {
+            "Tekst",
+            "123",
+            "Tak/Nie"});
+            this.ParameterType.Name = "ParameterType";
+            this.ParameterType.Width = 225;
+            // 
+            // ParameterId
+            // 
+            this.ParameterId.HeaderText = "#";
+            this.ParameterId.Name = "ParameterId";
+            this.ParameterId.Visible = false;
             // 
             // EditParametersWindow
             // 

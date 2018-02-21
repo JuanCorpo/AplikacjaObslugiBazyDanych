@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using AplikacjaObslugiBazyDanych.Code.Enums;
+using AplikacjaObslugiBazyDanych.Code.Helpers;
 using AplikacjaObslugiBazyDanych.Models;
 
 namespace AplikacjaObslugiBazyDanych.Views
@@ -21,6 +18,15 @@ namespace AplikacjaObslugiBazyDanych.Views
             InitializeComponent();
 
             UpdateTable();
+
+            if (!UserHelper.IsInClaim(Claims.EditOrders))
+            {
+                Edit.Enabled = false;
+            }
+            if (!UserHelper.IsInClaim(Claims.RemoveOrders))
+            {
+                Delete.Enabled = false;
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)

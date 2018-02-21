@@ -71,6 +71,13 @@ namespace AplikacjaObslugiBazyDanych.Views
 
                 if (employee == null) return;
 
+                if (context.Products.Any(p => p.EmployeeId == employee.EmployeeId))
+                {
+                    MessageBox.Show("Nue można usunąć pracownika powiązanego z produktem");
+                    return;
+                }
+
+
                 context.Employees.Remove(employee);
                 context.SaveChanges();
                 UpdateTable();

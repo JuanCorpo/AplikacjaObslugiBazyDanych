@@ -13,5 +13,6 @@ namespace AplikacjaObslugiBazyDanych.Models
         public int? ParentId { get; set; }
         [ForeignKey("ParentId")]
         public virtual Category Parent { get; set; }
+        
     }
 }

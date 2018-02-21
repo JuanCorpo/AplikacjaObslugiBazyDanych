@@ -53,7 +53,7 @@
             this.Login.Location = new System.Drawing.Point(12, 64);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(152, 20);
-            this.Login.TabIndex = 0;
+            this.Login.TabIndex = 3;
             // 
             // label1
             // 
@@ -103,7 +103,7 @@
             this.Firstname.Location = new System.Drawing.Point(12, 12);
             this.Firstname.Name = "Firstname";
             this.Firstname.Size = new System.Drawing.Size(152, 20);
-            this.Firstname.TabIndex = 6;
+            this.Firstname.TabIndex = 1;
             // 
             // label5
             // 
@@ -119,21 +119,21 @@
             this.Surname.Location = new System.Drawing.Point(12, 38);
             this.Surname.Name = "Surname";
             this.Surname.Size = new System.Drawing.Size(152, 20);
-            this.Surname.TabIndex = 8;
+            this.Surname.TabIndex = 2;
             // 
             // Phone
             // 
             this.Phone.Location = new System.Drawing.Point(12, 116);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(152, 20);
-            this.Phone.TabIndex = 9;
+            this.Phone.TabIndex = 6;
             // 
             // Email
             // 
             this.Email.Location = new System.Drawing.Point(12, 142);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(152, 20);
-            this.Email.TabIndex = 10;
+            this.Email.TabIndex = 7;
             // 
             // Roles
             // 
@@ -142,7 +142,7 @@
             this.Roles.Location = new System.Drawing.Point(12, 168);
             this.Roles.Name = "Roles";
             this.Roles.Size = new System.Drawing.Size(152, 21);
-            this.Roles.TabIndex = 11;
+            this.Roles.TabIndex = 8;
             // 
             // label6
             // 
@@ -167,7 +167,7 @@
             this.Add.Location = new System.Drawing.Point(89, 195);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
-            this.Add.TabIndex = 14;
+            this.Add.TabIndex = 9;
             this.Add.Text = "Ok";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -177,7 +177,7 @@
             this.button2.Location = new System.Drawing.Point(12, 195);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 100;
             this.button2.Text = "Anuluj";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -187,7 +187,7 @@
             this.Generate.Location = new System.Drawing.Point(215, 90);
             this.Generate.Name = "Generate";
             this.Generate.Size = new System.Drawing.Size(64, 20);
-            this.Generate.TabIndex = 16;
+            this.Generate.TabIndex = 4;
             this.Generate.Text = "Generuj";
             this.Generate.UseVisualStyleBackColor = true;
             this.Generate.Click += new System.EventHandler(this.Generate_Click);

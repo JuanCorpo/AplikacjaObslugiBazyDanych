@@ -52,7 +52,8 @@ namespace AplikacjaObslugiBazyDanych.Views
                         Value = item.StatusName
                     });
                 }
-                Status.SelectedIndex = 0;
+                if (Status.Items.Count > 0)
+                    Status.SelectedIndex = 0;
 
 
                 if (loadedOrder != null)
