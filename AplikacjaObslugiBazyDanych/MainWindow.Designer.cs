@@ -49,7 +49,6 @@ namespace AplikacjaObslugiBazyDanych
             this.EditStatuses = new System.Windows.Forms.Button();
             this.EditCategories = new System.Windows.Forms.Button();
             this.EditRole = new System.Windows.Forms.Button();
-            this.DeleteClient = new System.Windows.Forms.Button();
             this.EditClient = new System.Windows.Forms.Button();
             this.EditProduct = new System.Windows.Forms.Button();
             this.AddEmployee = new System.Windows.Forms.Button();
@@ -157,7 +156,6 @@ namespace AplikacjaObslugiBazyDanych
             this.panel2.Controls.Add(this.EditStatuses);
             this.panel2.Controls.Add(this.EditCategories);
             this.panel2.Controls.Add(this.EditRole);
-            this.panel2.Controls.Add(this.DeleteClient);
             this.panel2.Controls.Add(this.EditClient);
             this.panel2.Controls.Add(this.EditProduct);
             this.panel2.Controls.Add(this.AddEmployee);
@@ -243,19 +241,6 @@ namespace AplikacjaObslugiBazyDanych
             this.EditRole.UseVisualStyleBackColor = true;
             this.EditRole.Click += new System.EventHandler(this.EditRole_Click);
             // 
-            // DeleteClient
-            // 
-            this.DeleteClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DeleteClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeleteClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteClient.Location = new System.Drawing.Point(195, 237);
-            this.DeleteClient.Name = "DeleteClient";
-            this.DeleteClient.Size = new System.Drawing.Size(187, 110);
-            this.DeleteClient.TabIndex = 9;
-            this.DeleteClient.Text = "Usuń klienta";
-            this.DeleteClient.UseVisualStyleBackColor = true;
-            this.DeleteClient.Click += new System.EventHandler(this.DeleteClient_Click);
-            // 
             // EditClient
             // 
             this.EditClient.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -263,9 +248,9 @@ namespace AplikacjaObslugiBazyDanych
             this.EditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.EditClient.Location = new System.Drawing.Point(195, 119);
             this.EditClient.Name = "EditClient";
-            this.EditClient.Size = new System.Drawing.Size(187, 110);
+            this.EditClient.Size = new System.Drawing.Size(187, 226);
             this.EditClient.TabIndex = 5;
-            this.EditClient.Text = "Edytuj klienta";
+            this.EditClient.Text = "   Edytuj / usuń      klienta";
             this.EditClient.UseVisualStyleBackColor = true;
             this.EditClient.Click += new System.EventHandler(this.EditClient_Click);
             // 
@@ -414,7 +399,6 @@ namespace AplikacjaObslugiBazyDanych
         private Button EditStatuses;
         private Button EditCategories;
         private Button EditRole;
-        private Button DeleteClient;
         private Button EditClient;
         private Button EditProduct;
         private Button AddEmployee;

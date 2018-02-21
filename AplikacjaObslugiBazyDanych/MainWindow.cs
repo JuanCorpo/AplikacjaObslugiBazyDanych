@@ -26,7 +26,6 @@ namespace AplikacjaObslugiBazyDanych
             {
                 AddProduct,AddClient,AddOrder,AddEmployee,
                 EditClient,EditProduct,
-                DeleteClient,
                 EditParametersTypes,EditStatuses,EditCategories,EditRole
             };
             ValidateRights();
@@ -61,11 +60,6 @@ namespace AplikacjaObslugiBazyDanych
             if (!UserHelper.IsInClaim(Claims.EditProducts))
             {
                 EditProduct.Enabled = false;
-            }
-            
-            if (!UserHelper.IsInClaim(Claims.RemoveCustomers))
-            {
-                DeleteClient.Enabled = false;
             }
 
             if (!UserHelper.IsInClaim(Claims.EditParameterTypes))
@@ -153,7 +147,7 @@ namespace AplikacjaObslugiBazyDanych
 
         private void EditClient_Click(object sender, EventArgs e)
         {
-            var window = new EditCustomerWindow();
+            var window = new CustomerListWindow();
             window.ShowDialog();
             ValidateRights();
         }
