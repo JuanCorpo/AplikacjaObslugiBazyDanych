@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ProductsTable = new System.Windows.Forms.DataGridView();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EditCategoryButton = new System.Windows.Forms.Button();
-            this.DeleteCategoryButton = new System.Windows.Forms.Button();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +39,9 @@
             this.stockStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EditCategoryButton = new System.Windows.Forms.Button();
+            this.DeleteCategoryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,30 +69,6 @@
             this.ProductsTable.RowHeadersVisible = false;
             this.ProductsTable.Size = new System.Drawing.Size(957, 462);
             this.ProductsTable.TabIndex = 0;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(AplikacjaObslugiBazyDanych.Models.Product);
-            // 
-            // EditCategoryButton
-            // 
-            this.EditCategoryButton.Location = new System.Drawing.Point(976, 12);
-            this.EditCategoryButton.Name = "EditCategoryButton";
-            this.EditCategoryButton.Size = new System.Drawing.Size(114, 56);
-            this.EditCategoryButton.TabIndex = 1;
-            this.EditCategoryButton.Text = "Edytuj kategorię";
-            this.EditCategoryButton.UseVisualStyleBackColor = true;
-            this.EditCategoryButton.Click += new System.EventHandler(this.EditCategoryButton_Click);
-            // 
-            // DeleteCategoryButton
-            // 
-            this.DeleteCategoryButton.Location = new System.Drawing.Point(975, 74);
-            this.DeleteCategoryButton.Name = "DeleteCategoryButton";
-            this.DeleteCategoryButton.Size = new System.Drawing.Size(114, 56);
-            this.DeleteCategoryButton.TabIndex = 2;
-            this.DeleteCategoryButton.Text = "Usuń kategorię\r\n";
-            this.DeleteCategoryButton.UseVisualStyleBackColor = true;
-            this.DeleteCategoryButton.Click += new System.EventHandler(this.DeleteCategoryButton_Click);
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -159,6 +135,30 @@
             this.employeeDataGridViewTextBoxColumn.HeaderText = "Opiekun produktu";
             this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
             this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(AplikacjaObslugiBazyDanych.Models.Product);
+            // 
+            // EditCategoryButton
+            // 
+            this.EditCategoryButton.Location = new System.Drawing.Point(976, 12);
+            this.EditCategoryButton.Name = "EditCategoryButton";
+            this.EditCategoryButton.Size = new System.Drawing.Size(114, 56);
+            this.EditCategoryButton.TabIndex = 1;
+            this.EditCategoryButton.Text = "Edytuj kategorię";
+            this.EditCategoryButton.UseVisualStyleBackColor = true;
+            this.EditCategoryButton.Click += new System.EventHandler(this.EditCategoryButton_Click);
+            // 
+            // DeleteCategoryButton
+            // 
+            this.DeleteCategoryButton.Location = new System.Drawing.Point(975, 74);
+            this.DeleteCategoryButton.Name = "DeleteCategoryButton";
+            this.DeleteCategoryButton.Size = new System.Drawing.Size(114, 56);
+            this.DeleteCategoryButton.TabIndex = 2;
+            this.DeleteCategoryButton.Text = "Usuń kategorię\r\n";
+            this.DeleteCategoryButton.UseVisualStyleBackColor = true;
+            this.DeleteCategoryButton.Click += new System.EventHandler(this.DeleteCategoryButton_Click);
             // 
             // ProductListWindow
             // 

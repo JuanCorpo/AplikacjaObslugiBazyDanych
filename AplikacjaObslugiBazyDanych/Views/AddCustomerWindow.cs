@@ -1,5 +1,6 @@
 ﻿using AplikacjaObslugiBazyDanych.Models;
 using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,9 +8,22 @@ namespace AplikacjaObslugiBazyDanych.Views
 {
     public partial class AddCustomerWindow : Form
     {
-        public AddCustomerWindow()
+        Customer CustomerModel;
+        public AddCustomerWindow(Customer customer = null)
         {
             InitializeComponent();
+            CustomerModel = new Customer();
+            if (customer != null)
+            {
+                CustomerModel = customer;
+                CustomerFirstName.Text = customer.FirstName;
+                CustomerLastName.Text = customer.LastName;
+                CustomerAddress.Text = customer.Address;
+                CustomerCity.Text = customer.City;
+                CustomerCountry.Text = customer.Country;
+                CustomerPhoneNumber.Text = customer.PhoneNumber;
+                CustomerEmail.Text = customer.Email;
+            }
         }
 
         private void CustomerButtonOk_Click(object sender, EventArgs e)
@@ -18,7 +32,6 @@ namespace AplikacjaObslugiBazyDanych.Views
             {
                 if (IsValidEmail(CustomerEmail.Text))
                 {
-                    var CustomerModel = new Customer();
                     CustomerModel.FirstName = CustomerFirstName.Text;
                     CustomerModel.LastName = CustomerLastName.Text;
                     CustomerModel.Address = CustomerAddress.Text;
@@ -28,7 +41,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     CustomerModel.Email = CustomerEmail.Text;
                     using (var context = new DatabaseContext())
                     {
-                        context.Customers.Add(CustomerModel);
+                        context.Customers.AddOrUpdate(CustomerModel);
                         context.SaveChanges();
                     }
                     this.Close();
