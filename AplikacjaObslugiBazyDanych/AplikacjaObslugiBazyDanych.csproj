@@ -253,6 +253,12 @@
     <Compile Include="Views\OrderListWindow.Designer.cs">
       <DependentUpon>OrderListWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductListWindow.designer.cs">
+      <DependentUpon>ProductListWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelectOrderProductWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderListWindow.resx">
       <DependentUpon>OrderListWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductListWindow.resx">
+      <DependentUpon>ProductListWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelectOrderProductWindow.resx">
       <DependentUpon>SelectOrderProductWindow.cs</DependentUpon>

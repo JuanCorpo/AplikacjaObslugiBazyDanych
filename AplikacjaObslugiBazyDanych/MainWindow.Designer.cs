@@ -43,13 +43,13 @@ namespace AplikacjaObslugiBazyDanych
             this.RoleName = new System.Windows.Forms.Label();
             this.MyTimer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.EditRemoveOrder = new System.Windows.Forms.Button();
             this.EditRemoveEmployee = new System.Windows.Forms.Button();
             this.EditParametersTypes = new System.Windows.Forms.Button();
             this.EditStatuses = new System.Windows.Forms.Button();
             this.EditCategories = new System.Windows.Forms.Button();
             this.EditRole = new System.Windows.Forms.Button();
             this.DeleteClient = new System.Windows.Forms.Button();
-            this.DeleteProduct = new System.Windows.Forms.Button();
             this.EditClient = new System.Windows.Forms.Button();
             this.EditProduct = new System.Windows.Forms.Button();
             this.AddEmployee = new System.Windows.Forms.Button();
@@ -59,7 +59,6 @@ namespace AplikacjaObslugiBazyDanych
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.EditRemoveOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -159,7 +158,6 @@ namespace AplikacjaObslugiBazyDanych
             this.panel2.Controls.Add(this.EditCategories);
             this.panel2.Controls.Add(this.EditRole);
             this.panel2.Controls.Add(this.DeleteClient);
-            this.panel2.Controls.Add(this.DeleteProduct);
             this.panel2.Controls.Add(this.EditClient);
             this.panel2.Controls.Add(this.EditProduct);
             this.panel2.Controls.Add(this.AddEmployee);
@@ -170,6 +168,17 @@ namespace AplikacjaObslugiBazyDanych
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(774, 471);
             this.panel2.TabIndex = 2;
+            // 
+            // EditRemoveOrder
+            // 
+            this.EditRemoveOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditRemoveOrder.Location = new System.Drawing.Point(388, 119);
+            this.EditRemoveOrder.Name = "EditRemoveOrder";
+            this.EditRemoveOrder.Size = new System.Drawing.Size(185, 226);
+            this.EditRemoveOrder.TabIndex = 17;
+            this.EditRemoveOrder.Text = "Edytuj / Usuń zamówienie";
+            this.EditRemoveOrder.UseVisualStyleBackColor = true;
+            this.EditRemoveOrder.Click += new System.EventHandler(this.EditRemoveOrder_Click);
             // 
             // EditRemoveEmployee
             // 
@@ -247,19 +256,6 @@ namespace AplikacjaObslugiBazyDanych
             this.DeleteClient.UseVisualStyleBackColor = true;
             this.DeleteClient.Click += new System.EventHandler(this.DeleteClient_Click);
             // 
-            // DeleteProduct
-            // 
-            this.DeleteProduct.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.DeleteProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteProduct.Location = new System.Drawing.Point(3, 235);
-            this.DeleteProduct.Name = "DeleteProduct";
-            this.DeleteProduct.Size = new System.Drawing.Size(187, 110);
-            this.DeleteProduct.TabIndex = 8;
-            this.DeleteProduct.Text = "Usuń produkt";
-            this.DeleteProduct.UseVisualStyleBackColor = true;
-            this.DeleteProduct.Click += new System.EventHandler(this.DeleteProduct_Click);
-            // 
             // EditClient
             // 
             this.EditClient.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -280,9 +276,9 @@ namespace AplikacjaObslugiBazyDanych
             this.EditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.EditProduct.Location = new System.Drawing.Point(3, 119);
             this.EditProduct.Name = "EditProduct";
-            this.EditProduct.Size = new System.Drawing.Size(187, 110);
+            this.EditProduct.Size = new System.Drawing.Size(187, 226);
             this.EditProduct.TabIndex = 4;
-            this.EditProduct.Text = "Edytuj produkt";
+            this.EditProduct.Text = "Edytuj / usuń    produkt";
             this.EditProduct.UseVisualStyleBackColor = true;
             this.EditProduct.Click += new System.EventHandler(this.EditProduct_Click);
             // 
@@ -370,22 +366,11 @@ namespace AplikacjaObslugiBazyDanych
             this.label3.TabIndex = 0;
             this.label3.Text = "Aplikacja obsługi sklepu ";
             // 
-            // EditRemoveOrder
-            // 
-            this.EditRemoveOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.EditRemoveOrder.Location = new System.Drawing.Point(388, 119);
-            this.EditRemoveOrder.Name = "EditRemoveOrder";
-            this.EditRemoveOrder.Size = new System.Drawing.Size(185, 226);
-            this.EditRemoveOrder.TabIndex = 17;
-            this.EditRemoveOrder.Text = "Edytuj / Usuń zamówienie";
-            this.EditRemoveOrder.UseVisualStyleBackColor = true;
-            this.EditRemoveOrder.Click += new System.EventHandler(this.EditRemoveOrder_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 561);
+            this.ClientSize = new System.Drawing.Size(799, 562);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -430,7 +415,6 @@ namespace AplikacjaObslugiBazyDanych
         private Button EditCategories;
         private Button EditRole;
         private Button DeleteClient;
-        private Button DeleteProduct;
         private Button EditClient;
         private Button EditProduct;
         private Button AddEmployee;
