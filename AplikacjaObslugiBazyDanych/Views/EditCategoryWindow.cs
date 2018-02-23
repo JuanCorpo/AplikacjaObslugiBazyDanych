@@ -66,6 +66,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                         parentCategory.Items[parentCategory.Items.IndexOf("brak")];
                 }
             }
+            UpdateParentsDropdown();
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     var parent =
                         categories.FirstOrDefault(a => a.Name.Equals(DataTable.Rows[i].Cells[2].Value));
 
-                    if (parent != null || (DataTable.Rows[i].Cells[2].Value != null && DataTable.Rows[i].Cells[2].Value.ToString() == "brak"))
+                    if (parent != null || (DataTable.Rows[i].Cells[2].Value != null && DataTable.Rows[i].Cells[2].Value.ToString() == "brak" && DataTable.Rows[i].Cells[1].Value != null))
                     {
                         var category = new Category()
                         {
@@ -104,6 +105,7 @@ namespace AplikacjaObslugiBazyDanych.Views
 
                         context.Categories.AddOrUpdate(category);
                         context.SaveChanges();
+                        UpdateParentsDropdown();
                     }
                 }
             }
@@ -128,6 +130,7 @@ namespace AplikacjaObslugiBazyDanych.Views
             DataTable.Rows[DataTable.RowCount - 1].Cells[0].Value = newCategory.CategoryId;
             DataTable.Rows[DataTable.RowCount - 1].Cells[1].Value = "Nowa kategoria";
             DataTable.Rows[DataTable.RowCount - 1].Cells[2].Value = "brak";
+            UpdateParentsDropdown();
         }
 
         private void RemoveCategory_Click(object sender, EventArgs e)
@@ -156,6 +159,21 @@ namespace AplikacjaObslugiBazyDanych.Views
                             "Nie można usunąć kategori ponieważ jest powiązana z produktem lub jest kategorią nadrzędną!");
                     }
                 }
+            }
+        }
+        private void UpdateParentsDropdown()
+        {
+            using (var context = new DatabaseContext())
+            {
+                categories = context.Categories.ToList();
+            }
+            var parentCategory = DataTable.Columns[2] as DataGridViewComboBoxColumn;
+            parentCategory.Items.Clear();
+
+            parentCategory.Items.Add("brak");
+            foreach (var category in categories)
+            {
+                parentCategory.Items.Add(category.Name);
             }
         }
     }
