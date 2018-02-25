@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.CustomersTable = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EditCustomerButton = new System.Windows.Forms.Button();
+            this.DeleteCustomerButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -67,30 +67,6 @@
             this.CustomersTable.RowHeadersVisible = false;
             this.CustomersTable.Size = new System.Drawing.Size(957, 462);
             this.CustomersTable.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(976, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 56);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Edytuj klienta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(976, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 56);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Usuń klienta";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(AplikacjaObslugiBazyDanych.Models.Customer);
             // 
             // customerIdDataGridViewTextBoxColumn
             // 
@@ -149,13 +125,37 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(AplikacjaObslugiBazyDanych.Models.Customer);
+            // 
+            // EditCustomerButton
+            // 
+            this.EditCustomerButton.Location = new System.Drawing.Point(976, 12);
+            this.EditCustomerButton.Name = "EditCustomerButton";
+            this.EditCustomerButton.Size = new System.Drawing.Size(114, 56);
+            this.EditCustomerButton.TabIndex = 1;
+            this.EditCustomerButton.Text = "Edytuj klienta";
+            this.EditCustomerButton.UseVisualStyleBackColor = true;
+            this.EditCustomerButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // DeleteCustomerButton
+            // 
+            this.DeleteCustomerButton.Location = new System.Drawing.Point(976, 74);
+            this.DeleteCustomerButton.Name = "DeleteCustomerButton";
+            this.DeleteCustomerButton.Size = new System.Drawing.Size(114, 56);
+            this.DeleteCustomerButton.TabIndex = 2;
+            this.DeleteCustomerButton.Text = "Usuń klienta";
+            this.DeleteCustomerButton.UseVisualStyleBackColor = true;
+            this.DeleteCustomerButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CustomerListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 486);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DeleteCustomerButton);
+            this.Controls.Add(this.EditCustomerButton);
             this.Controls.Add(this.CustomersTable);
             this.Name = "CustomerListWindow";
             this.Text = "CustomerListWindow";
@@ -168,8 +168,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView CustomersTable;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button EditCustomerButton;
+        private System.Windows.Forms.Button DeleteCustomerButton;
         private System.Windows.Forms.BindingSource customerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;

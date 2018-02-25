@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AplikacjaObslugiBazyDanych.Code.Enums;
+using AplikacjaObslugiBazyDanych.Code.Helpers;
 
 namespace AplikacjaObslugiBazyDanych.Views
 {
@@ -21,6 +23,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                 InitializeComponent();
                 CustomerList = context.Customers.ToList();
                 CustomersTable.DataSource = CustomerList;
+                ValidateRights();
             }
         }
 
@@ -64,5 +67,17 @@ namespace AplikacjaObslugiBazyDanych.Views
                 UpdateTable();
             }
         }
+        private void ValidateRights()
+        {
+            if (!UserHelper.IsInClaim(Claims.EditCustomers))
+            {
+                EditCustomerButton.Enabled = false;
+            }
+            if (!UserHelper.IsInClaim(Claims.RemoveCustomers))
+            {
+                DeleteCustomerButton.Enabled = false;
+            }
+        }
+
     }
 }

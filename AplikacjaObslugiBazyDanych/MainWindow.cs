@@ -53,7 +53,7 @@ namespace AplikacjaObslugiBazyDanych
                 AddEmployee.Enabled = false;
             }
             
-            if (!UserHelper.IsInClaim(Claims.EditCustomers))
+            if (!UserHelper.IsInClaim(Claims.EditCustomers) && !UserHelper.IsInClaim(Claims.RemoveCustomers))
             {
                 EditClient.Enabled = false;
             }
