@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using AplikacjaObslugiBazyDanych.Code.Enums;
+using AplikacjaObslugiBazyDanych.Code.Helpers;
 
 
 namespace AplikacjaObslugiBazyDanych.Views
@@ -23,6 +25,7 @@ namespace AplikacjaObslugiBazyDanych.Views
             {
                 ProductsList = context.Products.Include(a => a.Category).Include(a => a.Employee).ToList();
                 InitializeComponent();
+                ValidateRights();
                 ProductsTable.DataSource = ProductsList;
             }
         }
@@ -65,6 +68,18 @@ namespace AplikacjaObslugiBazyDanych.Views
                 context.Products.Remove(ProductModel);
                 context.SaveChanges();
                 UpdateTable();
+            }
+        }
+
+        private void ValidateRights()
+        {
+            if (!UserHelper.IsInClaim(Claims.EditProducts))
+            {
+                EditProductButton.Enabled = false;
+            }
+            if (!UserHelper.IsInClaim(Claims.RemoveProducts))
+            {
+                DeleteProductButton.Enabled = false;
             }
         }
     }

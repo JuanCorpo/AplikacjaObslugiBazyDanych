@@ -195,7 +195,10 @@ namespace AplikacjaObslugiBazyDanych.Views
             if (selected.Count > 0)
             {
                 int IdBuff = selected[0].RowIndex;
-                ParametersToDelete.Add(int.Parse(ProductParametersTable.Rows[IdBuff].Cells[3].Value.ToString()));
+                if (ProductParametersTable.Rows[IdBuff].Cells[3].Value != null)
+                {
+                    ParametersToDelete.Add(int.Parse(ProductParametersTable.Rows[IdBuff].Cells[3].Value.ToString()));
+                }
                 ProductParametersTable.Rows.RemoveAt(selected[0].RowIndex);
                 SetIndexes();
             }

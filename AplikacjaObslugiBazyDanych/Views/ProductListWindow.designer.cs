@@ -40,8 +40,8 @@
             this.employeeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EditCategoryButton = new System.Windows.Forms.Button();
-            this.DeleteCategoryButton = new System.Windows.Forms.Button();
+            this.EditProductButton = new System.Windows.Forms.Button();
+            this.DeleteProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -140,33 +140,33 @@
             // 
             this.productBindingSource.DataSource = typeof(AplikacjaObslugiBazyDanych.Models.Product);
             // 
-            // EditCategoryButton
+            // EditProductButton
             // 
-            this.EditCategoryButton.Location = new System.Drawing.Point(976, 12);
-            this.EditCategoryButton.Name = "EditCategoryButton";
-            this.EditCategoryButton.Size = new System.Drawing.Size(114, 56);
-            this.EditCategoryButton.TabIndex = 1;
-            this.EditCategoryButton.Text = "Edytuj kategorię";
-            this.EditCategoryButton.UseVisualStyleBackColor = true;
-            this.EditCategoryButton.Click += new System.EventHandler(this.EditCategoryButton_Click);
+            this.EditProductButton.Location = new System.Drawing.Point(976, 12);
+            this.EditProductButton.Name = "EditProductButton";
+            this.EditProductButton.Size = new System.Drawing.Size(114, 56);
+            this.EditProductButton.TabIndex = 1;
+            this.EditProductButton.Text = "Edytuj produkt";
+            this.EditProductButton.UseVisualStyleBackColor = true;
+            this.EditProductButton.Click += new System.EventHandler(this.EditCategoryButton_Click);
             // 
-            // DeleteCategoryButton
+            // DeleteProductButton
             // 
-            this.DeleteCategoryButton.Location = new System.Drawing.Point(975, 74);
-            this.DeleteCategoryButton.Name = "DeleteCategoryButton";
-            this.DeleteCategoryButton.Size = new System.Drawing.Size(114, 56);
-            this.DeleteCategoryButton.TabIndex = 2;
-            this.DeleteCategoryButton.Text = "Usuń kategorię\r\n";
-            this.DeleteCategoryButton.UseVisualStyleBackColor = true;
-            this.DeleteCategoryButton.Click += new System.EventHandler(this.DeleteCategoryButton_Click);
+            this.DeleteProductButton.Location = new System.Drawing.Point(975, 74);
+            this.DeleteProductButton.Name = "DeleteProductButton";
+            this.DeleteProductButton.Size = new System.Drawing.Size(114, 56);
+            this.DeleteProductButton.TabIndex = 2;
+            this.DeleteProductButton.Text = "Usuń produkt";
+            this.DeleteProductButton.UseVisualStyleBackColor = true;
+            this.DeleteProductButton.Click += new System.EventHandler(this.DeleteCategoryButton_Click);
             // 
             // ProductListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 486);
-            this.Controls.Add(this.DeleteCategoryButton);
-            this.Controls.Add(this.EditCategoryButton);
+            this.Controls.Add(this.DeleteProductButton);
+            this.Controls.Add(this.EditProductButton);
             this.Controls.Add(this.ProductsTable);
             this.Name = "ProductListWindow";
             this.Text = "ProductListWindow";
@@ -180,8 +180,8 @@
 
         private System.Windows.Forms.DataGridView ProductsTable;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.Button EditCategoryButton;
-        private System.Windows.Forms.Button DeleteCategoryButton;
+        private System.Windows.Forms.Button EditProductButton;
+        private System.Windows.Forms.Button DeleteProductButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;

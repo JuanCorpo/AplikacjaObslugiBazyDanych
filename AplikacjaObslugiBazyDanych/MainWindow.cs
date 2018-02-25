@@ -57,7 +57,7 @@ namespace AplikacjaObslugiBazyDanych
             {
                 EditClient.Enabled = false;
             }
-            if (!UserHelper.IsInClaim(Claims.EditProducts))
+            if (!UserHelper.IsInClaim(Claims.EditProducts) && !UserHelper.IsInClaim(Claims.RemoveProducts))
             {
                 EditProduct.Enabled = false;
             }
