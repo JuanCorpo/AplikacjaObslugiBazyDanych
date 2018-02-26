@@ -44,6 +44,8 @@
             this.Edit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PriceTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +83,7 @@
             this.DataTable.Location = new System.Drawing.Point(12, 81);
             this.DataTable.Name = "DataTable";
             this.DataTable.RowHeadersVisible = false;
-            this.DataTable.Size = new System.Drawing.Size(560, 468);
+            this.DataTable.Size = new System.Drawing.Size(560, 455);
             this.DataTable.TabIndex = 2;
             // 
             // Index
@@ -186,11 +188,30 @@
             this.Status.Size = new System.Drawing.Size(161, 21);
             this.Status.TabIndex = 8;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(353, 539);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Kwota zamówienia";
+            // 
+            // PriceTotal
+            // 
+            this.PriceTotal.AutoSize = true;
+            this.PriceTotal.Location = new System.Drawing.Point(454, 539);
+            this.PriceTotal.Name = "PriceTotal";
+            this.PriceTotal.Size = new System.Drawing.Size(0, 13);
+            this.PriceTotal.TabIndex = 10;
+            // 
             // AddOrderWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.PriceTotal);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Edit);
@@ -230,5 +251,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn PID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label PriceTotal;
     }
 }

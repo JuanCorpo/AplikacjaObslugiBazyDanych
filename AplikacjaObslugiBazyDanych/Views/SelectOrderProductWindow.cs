@@ -69,6 +69,10 @@ namespace AplikacjaObslugiBazyDanych.Views
 
                     Employee.Text = orderDetail.Product.Employee.GetFullName();
                 }
+                else
+                {
+                    Add.Enabled = false;
+                }
             }
         }
 
@@ -116,6 +120,20 @@ namespace AplikacjaObslugiBazyDanych.Views
                     Price.Text = product.Price.ToString();
                     Stock.Text = product.StockStatus.ToString();
                     Employee.Text = product.Employee.GetFullName();
+
+                    selectedCount.Minimum = product.StockStatus == 0 ? 0 : 1;
+                    selectedCount.Value = product.StockStatus == 0 ? 0 : 1;
+
+                    if (selectedCount.Value == 0)
+                    {
+                        Add.Enabled = false;
+                    }
+                    else
+                    {
+                        Add.Enabled = true;
+                    }
+
+                    selectedCount.Maximum = product.StockStatus;
                 }
             }
         }

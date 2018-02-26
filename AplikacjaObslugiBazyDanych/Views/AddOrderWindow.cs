@@ -60,7 +60,10 @@ namespace AplikacjaObslugiBazyDanych.Views
                 {
                     order.OrderId = loadedOrder.OrderId;
 
-                    orderDetails = context.OrdersDetails.Include(a => a.Product).Include(a => a.Order).Where(a => a.OrderId == loadedOrder.OrderId).ToList();
+                    orderDetails = context.OrdersDetails
+                        .Include(a => a.Product)
+                        .Include(a => a.Order)
+                        .Where(a => a.OrderId == loadedOrder.OrderId).ToList();
 
                     foreach (var item in Customers.Items)
                     {
@@ -120,6 +123,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                 DataTable.Rows[DataTable.RowCount - 1].Cells[5].Value = ((100 - item.Discount) * (item.Product.Price * item.Amount)) / 100;
                 DataTable.Rows[DataTable.RowCount - 1].Cells[6].Value = item.ProductId;
             }
+            SummaryData();
         }
 
         private void ClearTable(DataGridView table)
@@ -142,7 +146,7 @@ namespace AplikacjaObslugiBazyDanych.Views
                     var id = (int)DataTable.Rows[rowId].Cells[0].Value;
 
                     var element = orderDetails.ElementAt(id - 1);
-                    if (element?.ID != null)
+                    if (element?.ID != null && element.ID != 0)
                     {
                         var toRemove = context.OrdersDetails.FirstOrDefault(a => a.ID == element.ID);
                         context.OrdersDetails.Remove(toRemove);
@@ -239,6 +243,11 @@ namespace AplikacjaObslugiBazyDanych.Views
             {
                 MessageBox.Show("Prosze wybrać klienta oraz status oraz zamówienie musi składać się z przynajmniej jednego produktu!");
             }
+        }
+
+        private void SummaryData()
+        {
+            PriceTotal.Text = orderDetails.Sum(a => (a.Amount * a.Price * (100-a.Discount)) / 100).ToString()+" zł";
         }
     }
 }
