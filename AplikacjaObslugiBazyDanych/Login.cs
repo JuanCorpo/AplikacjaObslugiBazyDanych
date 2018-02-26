@@ -39,6 +39,8 @@ namespace AplikacjaObslugiBazyDanych
                     form2.ShowDialog();
                     if (UserHelper.LoggedIn == false)
                     {
+                        this.TextBox_Login.Text = "";
+                        this.TextBox_Password.Text = "";
                         this.Show();
                     }
                     else

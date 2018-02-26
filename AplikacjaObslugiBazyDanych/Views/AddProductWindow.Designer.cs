@@ -85,14 +85,14 @@
             this.ProductName.Location = new System.Drawing.Point(12, 39);
             this.ProductName.Name = "ProductName";
             this.ProductName.Size = new System.Drawing.Size(156, 20);
-            this.ProductName.TabIndex = 7;
+            this.ProductName.TabIndex = 2;
             // 
             // ProductPrice
             // 
             this.ProductPrice.Location = new System.Drawing.Point(12, 65);
             this.ProductPrice.Name = "ProductPrice";
             this.ProductPrice.Size = new System.Drawing.Size(156, 20);
-            this.ProductPrice.TabIndex = 8;
+            this.ProductPrice.TabIndex = 3;
             // 
             // ProductCategory
             // 
@@ -101,7 +101,7 @@
             this.ProductCategory.Location = new System.Drawing.Point(12, 12);
             this.ProductCategory.Name = "ProductCategory";
             this.ProductCategory.Size = new System.Drawing.Size(156, 21);
-            this.ProductCategory.TabIndex = 10;
+            this.ProductCategory.TabIndex = 1;
             // 
             // ProductEmployee
             // 
@@ -110,7 +110,7 @@
             this.ProductEmployee.Location = new System.Drawing.Point(12, 117);
             this.ProductEmployee.Name = "ProductEmployee";
             this.ProductEmployee.Size = new System.Drawing.Size(157, 21);
-            this.ProductEmployee.TabIndex = 11;
+            this.ProductEmployee.TabIndex = 5;
             // 
             // label4
             // 
@@ -135,7 +135,7 @@
             this.AddProductButton.Location = new System.Drawing.Point(78, 403);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(75, 23);
-            this.AddProductButton.TabIndex = 15;
+            this.AddProductButton.TabIndex = 8;
             this.AddProductButton.Text = "Ok";
             this.AddProductButton.UseVisualStyleBackColor = true;
             this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
@@ -145,7 +145,7 @@
             this.CloseWindowButton.Location = new System.Drawing.Point(247, 403);
             this.CloseWindowButton.Name = "CloseWindowButton";
             this.CloseWindowButton.Size = new System.Drawing.Size(75, 23);
-            this.CloseWindowButton.TabIndex = 16;
+            this.CloseWindowButton.TabIndex = 9;
             this.CloseWindowButton.Text = "Anuluj";
             this.CloseWindowButton.UseVisualStyleBackColor = true;
             this.CloseWindowButton.Click += new System.EventHandler(this.CloseWindowButton_Click);
@@ -164,7 +164,7 @@
             this.AddParameterButton.Location = new System.Drawing.Point(373, 160);
             this.AddParameterButton.Name = "AddParameterButton";
             this.AddParameterButton.Size = new System.Drawing.Size(111, 23);
-            this.AddParameterButton.TabIndex = 21;
+            this.AddParameterButton.TabIndex = 6;
             this.AddParameterButton.Text = "Dodaj nowe pole";
             this.AddParameterButton.UseVisualStyleBackColor = true;
             this.AddParameterButton.Click += new System.EventHandler(this.AddParameterButton_Click);
@@ -216,7 +216,7 @@
             this.DeleteParameterButton.Location = new System.Drawing.Point(373, 189);
             this.DeleteParameterButton.Name = "DeleteParameterButton";
             this.DeleteParameterButton.Size = new System.Drawing.Size(111, 23);
-            this.DeleteParameterButton.TabIndex = 23;
+            this.DeleteParameterButton.TabIndex = 7;
             this.DeleteParameterButton.Text = "Usuń parametr";
             this.DeleteParameterButton.UseVisualStyleBackColor = true;
             this.DeleteParameterButton.Click += new System.EventHandler(this.DeleteParameterButton_Click);
@@ -226,7 +226,7 @@
             this.ProductStockStatus.Location = new System.Drawing.Point(13, 92);
             this.ProductStockStatus.Name = "ProductStockStatus";
             this.ProductStockStatus.Size = new System.Drawing.Size(155, 20);
-            this.ProductStockStatus.TabIndex = 26;
+            this.ProductStockStatus.TabIndex = 4;
             // 
             // ProductId
             // 
